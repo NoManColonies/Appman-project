@@ -1,9 +1,11 @@
- @layout('layout')
+@layout('layout')
 
 @section('style-section')
-
+{{ style("css/login") }}
 @endsection
 
 @section('content')
- {{name}}
+    <div class="container">
+        <p class="center">{{name}}</p>
+    </div>
 @endsection
