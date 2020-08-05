@@ -1,0 +1,25 @@
+@layout('layout')
+
+@section('style-section')
+{{ style("css/login") }}
+@endsection
+
+@section('content')
+    <div class="container">
+        <p class="center">Login<span> {{name}} {{age}}</span></p>
+
+        @if(age >= 20)
+        <span>Hello</span>
+        @else
+        <span>Yep</span>
+        @endif
+
+        <ol>
+        @each(item in array)
+        <li>{{item}}</li>
+        @endeach
+        </ol>
+
+        <p>{{obj.item1}}</p>
+    </div>
+@endsection
