@@ -6,23 +6,13 @@
 
 @section('content')
     <div class="container">
-        <p class="center">Login<span> {{name}} {{age}}</span></p>
-
-        @if(age >= 20)
-        <span>Hello</span>
-        @else
-        <span>Yep</span>
-        @endif
-
-        <ol>
-        @each(item in array)
-        <li>{{item}}</li>
-        @endeach
-        </ol>
-
-        <p>{{obj.item1}}</p>
-
-
-        <img src="{{ assetsUrl("images/pyramid.png") }}">
+        <form action="{{ route("/login") }}" method="POST">
+            {{ csrfField() }}
+            <label for="user">User</label>
+            <input type="text" name="user" id="user">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <button type="submit">Submit</button>
+        </form>
     </div>
 @endsection

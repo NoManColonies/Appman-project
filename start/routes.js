@@ -20,5 +20,6 @@ Route.on("/").render("home");
 // Route.on("/register").render("register");
 
 Route.get("/login", "AuthController.login");
+Route.post("/login", "AuthController.loginUser");
 
 Route.get("/register", "AuthController.register");
