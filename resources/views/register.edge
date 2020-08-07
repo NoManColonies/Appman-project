@@ -1,0 +1,25 @@
+@layout("layout")
+
+    @section("style-section")
+    {{style("css/login")}}
+    @endsection
+
+    @section("content")
+
+    <div class="contain pink">
+    <form method="POST" action="{{route("/register")}}">
+        {{csrfField()}}
+        <label for="username">username</label>
+        <input type="text" name="username" id="username">
+        <label for="email">mail</label>
+        <input type="text" name="email" id="email">
+        <label for="password">password</label>
+        <input type="password" name="password" id="password">
+        <label for="confirm-password">confirm password</label>
+        <input type="password" name="confirm-password" id="confirm-password">
+        <button type="submit">Submit</button>
+    </form>
+    <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+    </div>
+
+    @endsection
