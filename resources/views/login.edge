@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route("/login") }}" method="POST">
+        <form action="{{ route("/login") }}" method="POST" class="form">
             {{ csrfField() }}
             <label for="user">User</label>
             <input type="text" name="user" id="user">
@@ -14,6 +14,7 @@
             <input type="password" name="password" id="password">
             <button type="submit">Submit</button>
         </form>
+        <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" onlogin="checkLoginState();" scope="public_profile,email"></div>
         <form action="{{ route("/login_forget")}}" method="POST">
             {{ csrfField() }}
             <button type="submit">Forget password</button>

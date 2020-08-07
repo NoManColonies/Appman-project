@@ -1,15 +1,15 @@
 
-        .container
-        {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #581845;
-        }
-        .center
-        {
-            font-size: 3em;
-            color: #ffc300;
-        }
+.container
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #581845;
+}
+.center
+{
+    font-size: 3em;
+    color: #ffc300;
+}

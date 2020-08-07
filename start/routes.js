@@ -28,3 +28,5 @@ Route.post("/login_forget", "AuthController.loginForget");
 
 Route.get("/register", "AuthController.register")
 Route.post("/register", "AuthController.registerUser");
+
+Route.post("/api/register", "AuthController.registerUser");

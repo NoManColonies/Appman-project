@@ -6,8 +6,33 @@
     {{style("css/reset")}}
 
     @!section("style-section")
+
+    
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '876182436203640',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v8.0'
+        });
+        
+        FB.AppEvents.logPageView();   
+        
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=876182436203640&autoLogAppEvents=1" nonce="JEi5N58C"></script>
     @!section('nav-bar')
     <div>
         @!section('content')
