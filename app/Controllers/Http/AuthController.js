@@ -25,23 +25,36 @@ class AuthController {
     }
 
     async loginUser ({ view, request, response }) {
-        const profile = request.body;
-        console.log(profile);
+        const { username, password } = request.body;
+        // console.log(profile);
 
         return response.redirect("/login");
     }
 
-    register ({ view,  request, response}) {
-        const name = "register";
-        const age = 20;
-        const array = ["5", "6", "7"];
-        const obj = {
-            item1: "4",
-            item2: "5",
-            item3: "6",
-        };
+    loginForgetGet ({ view, request, response }) {
+        return view.render("/login_forget");
+    }
 
-        return view.render("register", { name, age, array, obj });
+    loginForget ({ view, request, response }) {
+
+        return response.redirect("/login_forget");
+    }
+
+    register ({ view,  request, response}) {
+        return view.render("register");
+    }
+
+    async registerUser ({ view, request, response }) {
+        const { username, email, password} = request.body;
+        
+        await Database.from("profiles").insert({
+            username,
+            email,
+            password
+        })
+        console.log(username, email, password);
+
+        return response.redirect("/login")
     }
 }
 

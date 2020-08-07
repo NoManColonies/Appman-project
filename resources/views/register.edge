@@ -2,10 +2,22 @@
 
 @section('style-section')
 {{ style("css/login") }}
+{{ style("css/register" )}}
 @endsection
 
 @section('content')
     <div class="container">
-        <p class="center">{{name}}</p>
+    <form action="{{ route("/register") }}" class="register__form" method="POST">
+        {{ csrfField()}}
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username">
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+        <label for="re_password">Confirm password: </label>
+        <input type="password" name="re_password">
+        <button type="submit">Register</button>
+    </form>
     </div>
 @endsection

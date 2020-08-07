@@ -8,8 +8,9 @@ class ProfileSchema extends Schema {
     this.create('profiles', (table) => {
       table.increments()
       table.timestamps()
-      table.integer("age")
-      table.string("name")
+      table.string("username").notNullable().unique()
+      table.string("email").notNullable().unique()
+      table.string("password")
     })
   }
 

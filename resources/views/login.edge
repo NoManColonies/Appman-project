@@ -14,5 +14,9 @@
             <input type="password" name="password" id="password">
             <button type="submit">Submit</button>
         </form>
+        <form action="{{ route("/login_forget")}}" method="POST">
+            {{ csrfField() }}
+            <button type="submit">Forget password</button>
+        </form>
     </div>
 @endsection
