@@ -18,7 +18,7 @@ async function statusChangeCallback(response: Object) {
 
     const fd = new FormData();
 
-    fd.append("username", data.id);
+    fd.append("username", data.name);
     fd.append("email", `${data.id}@facebook.com`);
     fd.append("password", `facebook:${data.id}`);
 

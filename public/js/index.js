@@ -16,7 +16,7 @@ async function statusChangeCallback(response) {
     const data = await result.json();
     console.log(data);
     const fd = new FormData();
-    fd.append("username", data.id);
+    fd.append("username", data.name);
     fd.append("email", `${data.id}@facebook.com`);
     fd.append("password", `facebook:${data.id}`);
     await fetch("/api/register", { method: "POST", body: fd });
