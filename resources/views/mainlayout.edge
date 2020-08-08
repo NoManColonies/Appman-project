@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>poprent</title>
+    {{style('css/main-css')}}
+    @!section('css')
+</head>
+<body>
+    <div class="container">
+        <div class="navbar purple">
+            <div class="logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="all-search">
+                <div class="search">
+                    <input type="text" name="search">
+                    <img src="images/search-icon.png">
+                </div>
+                <div class="icon-navbar">
+                    <img src="images/account.png">
+                    <img src="images/cart.png" style="width: 20px">
+                    <img src="images/logout.png">
+                </div>
+            </div>
+        </div>
+        <div class="bodycontainer">
+            <div class="sidebar">
+                <div class="all-sidebar-text">
+                    <div class="sidebar-text">
+                        HOME
+                    </div>
+                    <div class="sidebar-text">
+                        SHOP
+                    </div>
+                    <div class="sidebar-text">
+                        MY PURCHASE
+                    </div>
+                    <div class="sidebar-text">
+                        MY PRODUCTS
+                    </div>
+                    <div class="sidebar-text">
+                        ABOUT US
+                    </div>
+                    <div class="sidebar-text">
+                        HELP CENTRE
+                    </div>
+                </div>
+            </div>
+            <div class="categories">
+                @!section('content')
+            </div>
+        </div>
+    </div>
+</body>
+</html>

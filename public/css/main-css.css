@@ -24,6 +24,7 @@ html,body {
     height: 100vh;
     position: fixed;
     z-index: 888;
+    grid-column: 1;
 }
 .sidebar-text {
     color: #767676;
@@ -75,7 +76,6 @@ html,body {
     width: 10px;
 }
 .categories {
-    /* border: red solid; */
     width: 100%;
     height: 100%;
 }
@@ -89,7 +89,14 @@ html,body {
 }
 .categories img {
     width: 100%;
+    /* margin-left: 300px; */
 }
 .categories {
-    width: 100%;
+    width: 1140px;
+    grid-column: 2;
+}
+.bodycontainer {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 300px 1fr;
 }

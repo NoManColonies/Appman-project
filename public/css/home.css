@@ -1,0 +1,16 @@
+
+.color {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 300px;
+    width: 100%;
+    margin:0;
+}
+.yellow {
+    background-color: #F1D28C;
+    width: 100%;
+}
+.yellow2 {
+    background-color: #DDBD77;
+    width: 100%;
+}
