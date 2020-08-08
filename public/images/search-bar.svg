@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.619" height="24.619" viewBox="0 0 23.619 24.619">
+  <g id="serach-bar" transform="translate(-1697 -40)">
+    <g id="search_icon" data-name="search icon" transform="translate(1697 40)">
+      <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(0)" fill="none" stroke="#9b3303" stroke-width="3">
+        <circle cx="9" cy="9" r="9" stroke="none"/>
+        <circle cx="9" cy="9" r="7.5" fill="none"/>
+      </g>
+      <line id="Line_4" data-name="Line 4" x2="6.476" y2="7.065" transform="translate(15.024 15.435)" fill="none" stroke="#9b3303" stroke-linecap="round" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
