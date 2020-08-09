@@ -7,6 +7,7 @@ html,body {
 .white {
     background-color: #ffffff;
     box-shadow: 0px -1px 10px rgba(128, 128, 128,0.6);
+    transition: all ease 400ms;
 }
 .container {
     height: 100%;
@@ -18,6 +19,7 @@ html,body {
     height: 100px;
     position: fixed;
     z-index: 999;
+    transition: all ease 400ms;
 }
 .search input{
     width: 400px;
