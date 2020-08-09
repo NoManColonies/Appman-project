@@ -21,11 +21,6 @@ html,body {
     z-index: 999;
     transition: all ease 400ms;
 }
-.search input{
-    width: 400px;
-    height: 20px;
-    border: none;
-}
 .all-nav {
     display: flex;
     height: 100%;
