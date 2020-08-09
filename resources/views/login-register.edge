@@ -1,0 +1,28 @@
+@layout('mainlayout')
+@section('css')
+{{style("css/login-register")}}
+@endsection
+@section('content')
+<div class="bodycontent">
+    <div class="login">
+        <form action="" method="get">
+            <div class="inputbox">
+                <input type="text" name="username" id="username">
+                <label for="username">USERNAME</label>
+            </div>
+            <div class="inputbox">
+                <input type="text" name="password" id="password">
+                <label for="password">PASSWORD</label>
+            </div>
+            <button type="submit" value="submit ">
+                LOG IN
+            </button>
+        </form>
+    </div>
+    <div class="register">
+        <button type="button">
+            REGISTER
+        </button>
+    </div>
+</div>
+@endsection

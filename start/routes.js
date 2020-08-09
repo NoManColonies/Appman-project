@@ -22,6 +22,7 @@ Route.get('/register',"AuthController.register");
 Route.post("/login","AuthController.loginUser")
 Route.on('/main').render('main')
 Route.post('/register',"AuthController.registerUser");
+Route.on('/login-register').render('login-register')
 
 Route.post("/api/register","AuthController.registerUer")
 
