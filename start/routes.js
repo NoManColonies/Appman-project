@@ -16,15 +16,15 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-Route.on('/').render('eiei')
+Route.on('/').render('home')
 Route.get('/login',"AuthController.login");
 Route.get('/register',"AuthController.register");
 Route.post("/login","AuthController.loginUser")
 Route.on('/main').render('main')
 Route.post('/register',"AuthController.registerUser");
 
-Route.post("/api/register","AuthController.registerUer")
-
+Route.post("/api/register","AuthController.registerUser")
+Route.post("/api/login", "AuthController.checkLoginState")
 
 // Route.get("/login",(context) => {
 //     const {view,request,response} = context
