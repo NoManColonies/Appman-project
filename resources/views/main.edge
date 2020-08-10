@@ -5,36 +5,54 @@
 @section('content')    
 <div class="firstpic">
     <div class="text-first">
-        <p class="first">You can found</p>
+        <p class="first">You can find</p>
         <p class="second">WHATEVER</p>
         <p class="third">"YOU WANT"</p>
     </div>
 </div>
-<div class="color">
-    <div class="yellow"></div>
-    <div class="yellow2"></div>
-</div>
-<div class="sub-categories">
-    <p>SHOP BY CATEGORIES</p>
-    <div class="sub-cate-all-img">
-        <img class="sub-cate-img1" src="images/categories-accessories.jpg">
-        <img class="sub-cate-img2" src="images/categories-case.jpg">
-        <img class="sub-cate-img3" src="images/categories-makeup.jpg">
-        <img class="sub-cate-img4" src="images/categories-pen.jpg">
-        <img class="sub-cate-img5" src="images/categories-toy.jpg">
+<section class="nav__detector">
+    <div class="color">
+        <div class="yellow"></div>
+        <div class="yellow2"></div>
     </div>
-</div>
-<div class="shop-now">
-    <div class="item__frame">
-        <div class="prime__color">
-            <img src="" alt="">
-            <p>Name</p>
-            <p>Price</p>
+    <div class="sub-categories">
+        <p>SHOP BY CATEGORIES</p>
+        <div class="sub-cate-all-img">
+            <img class="sub-cate-img1" src="images/categories-accessories.jpg">
+            <img class="sub-cate-img2" src="images/categories-case.jpg">
+            <img class="sub-cate-img3" src="images/categories-makeup.jpg">
+            <img class="sub-cate-img4" src="images/categories-pen.jpg">
+            <img class="sub-cate-img5" src="images/categories-toy.jpg">
         </div>
-        <div class="sec__color"></div>
     </div>
-    <button type="button">
-        GO SHOPPING NOW
-    </button>
-</div>
+    <div class="shop-now">
+        <div class="item__frame">
+            <div class="prime__color">
+                <img src="{{ assetsUrl("images/toy.png") }}" alt="">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
+            <div class="sec__color"></div>
+        </div>
+        <div class="item__frame">
+            <div class="prime__color">
+                <img src="{{ assetsUrl("images/case.png") }}" alt="">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
+            <div class="sec__color"></div>
+        </div>
+        <div class="item__frame">
+            <div class="prime__color">
+                <img src="{{ assetsUrl("images/hat.png") }}" alt="">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
+            <div class="sec__color"></div>
+        </div>
+        <button type="button">
+            GO SHOPPING NOW
+        </button>
+    </div>
+</section>
 @endsection
