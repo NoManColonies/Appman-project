@@ -1,23 +1,26 @@
-@layout('layout')
+@layout("layout")
 
-@section('style-section')
-{{ style("css/login") }}
-{{ style("css/register" )}}
-@endsection
+    @section("style-section")
+    {{style("css/login")}}
+    @endsection
 
-@section('content')
-    <div class="container">
-    <form action="{{ route("/register") }}" class="register__form" method="POST">
-        {{ csrfField()}}
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email">
-        <label for="username">Username: </label>
+    @section("content")
+
+    <div class="contain pink">
+    <form method="POST" action="{{route("/register")}}">
+        {{csrfField()}}
+        <label for="username">username</label>
         <input type="text" name="username" id="username">
-        <label for="password">Password: </label>
-        <input type="password" name="password">
-        <label for="re_password">Confirm password: </label>
-        <input type="password" name="re_password">
-        <button type="submit">Register</button>
+        <label for="email">mail</label>
+        <input type="text" name="email" id="email">
+        <label for="password">password</label>
+        <input type="password" name="password" id="password">
+        <label for="confirm-password">confirm password</label>
+        <input type="password" name="confirm-password" id="confirm-password">
+        <button type="submit">Submit</button>
     </form>
+    <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="">
     </div>
-@endsection
+    </div>
+
+    @endsection

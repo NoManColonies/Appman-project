@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>poprent</title>
+    {{style('css/main-css')}}
+    {{style('css/reset')}}
+    @!section('css')
+</head>
+<body>
+    <div class="container">
+        <div class="navbar white">
+            <div class="logo">
+                <img src="images/logo.svg">
+            </div>
+            <div class="all-nav">
+                <p>HOME</p>
+                <p>SHOP</p>
+                <p>PURCHASE</p>
+                <p>PRODUCTS</p>
+                <p>ABOUT US</p>
+                <div class="icon-navbar">
+                    <img src="images/search-bar.svg">
+                    <img src="images/account.svg">
+                    <img src="images/shopping-cart.svg">
+                    <img src="images/logout.svg">
+                </div>
+            </div>
+        </div>
+        {{script("js/index")}}
+        <div class="maincontent">
+            @!section('content')
+        </div>
+    </div>
+    {{script("js/index")}}
+    <div id="fb-root"></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0&appId=1012042575911613&autoLogAppEvents=1" nonce="clIVpeU5"></script></body>
+<footer>
+</footer>
+</html>

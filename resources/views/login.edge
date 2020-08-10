@@ -1,23 +1,30 @@
-@layout('layout')
+@layout("layout")
 
-@section('style-section')
-{{ style("css/login") }}
-@endsection
+    @section("style-section")
+    {{style("css/login")}}
+    @endsection
 
-@section('content')
-    <div class="container">
-        <form action="{{ route("/login") }}" method="POST" class="form">
+    @section("content")
+
+    <div class="contain pink">
+        <form method="POST" action="{{route("/login")}}">
             {{ csrfField() }}
-            <label for="user">User</label>
-            <input type="text" name="user" id="user">
-            <label for="password">Password</label>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username">
+            <label for="password">password</label>
             <input type="password" name="password" id="password">
             <button type="submit">Submit</button>
         </form>
-        <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" onlogin="checkLoginState();" scope="public_profile,email"></div>
-        <form action="{{ route("/login_forget")}}" method="POST">
-            {{ csrfField() }}
-            <button type="submit">Forget password</button>
-        </form>
+        <div 
+        class="fb-login-button"
+        data-size="large" 
+        data-button-type="continue_with" 
+        data-layout="default" 
+        data-auto-logout-link="false" 
+        data-use-continue-as="false" 
+        data-width="" 
+        onlogin="checkLoginState();"  
+        scope="public_profile,email"
+        ></div>
     </div>
-@endsection
+    @endsection

@@ -1,0 +1,35 @@
+@layout('mainlayout')
+@section('css')
+{{style("css/detail")}}
+@endsection
+@section('content')
+<div class="body-content">
+    <div class="gallery">
+
+    </div>
+    <div class="product-detail">
+        <div class="text">
+            <div class="sub-text" style="font-size:40px;font-weight:bold;">WOODDY MEMES</div>
+            <div class="sub-text" style="letter-spacing:2px;font-size: 25px;font-weight:200;">PRICE/DAY 999.00 THB</div>
+            <div class="sub-sec-text" style="margin-top:30px;font-size:20px;font-weight:100;"><label for="color">Color</label>
+                <select name="color" id="color">
+                    <option value="pink">pink</option>
+                    <option value="black">black</option>
+                </select>
+            </div>
+            <div class="sub-sec-text" style="margin-top:15px;font-size:20px;font-weight:100;"><label for="color">Size</label>
+                <select name="size" id="size">
+                    <option value="s">s</option>
+                    <option value="ss">ss</option>
+                </select>
+            </div>
+            <div class="sub-sec-text"style="margin-top:15px;font-size:20px;font-weight:100;">Quantity
+            <input type="number"> </div>
+            <div class="add-buy-button">
+                <button class="add" type="submit">ADD TO CART</button>
+                <button class="buy" type="submit">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

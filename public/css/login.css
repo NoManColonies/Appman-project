@@ -1,15 +1,11 @@
-
-.container
-{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #581845;
+.contain {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
 }
-.center
-{
-    font-size: 3em;
-    color: #ffc300;
+.pink {
+    background-color: pink;
+    color: white;        
+    font-size: 1rem;
 }
