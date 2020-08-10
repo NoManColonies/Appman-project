@@ -1,9 +1,15 @@
+.content-under-navbar {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    position: relative;
+}
 .sidebar {
     width: 300px;
     background-color: white;
     height: 100vh;
     position: fixed;
     z-index: 888;
+    grid-column: 1;
 }
 .sidebar-text {
     color: #767676;
@@ -23,16 +29,32 @@
     height: 100% ;
 }
 .all-card {
-    margin-left: 300px;
+    grid-column: 2;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+    box-sizing: border-box;
+    padding: 100px;
+    grid-row-gap: 40px;
+    width: 100%;
+    grid-column-gap: 10px;
 }
 .card {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 200px; 
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
 .card img {
     border-radius: 10px 10px 0 0;
 }
 .inside {
     padding: 0px 10px 5px 10px;
+}
+footer {
+    background-color: #FDDFA3;
 }
