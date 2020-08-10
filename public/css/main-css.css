@@ -22,7 +22,6 @@ html,body {
 .all-nav {
     display: flex;
     height: 100%;
-    display: flex;
     align-items: center;
     justify-content: flex-end;
     color: #9B3303;
