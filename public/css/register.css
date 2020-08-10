@@ -1,0 +1,17 @@
+.register__form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.register__form input
+{
+    margin-bottom: 1em;
+}
+
+.register__form label
+{
+    margin-bottom: 1em;
+    color: whitesmoke;
+}
