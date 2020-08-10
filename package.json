@@ -27,6 +27,7 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "argon2": "^0.26.2",
+    "lucid-mongo": "^3.1.6",
     "mysql": "^2.18.1",
     "typescript": "^3.9.7"
   },
