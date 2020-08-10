@@ -3,6 +3,7 @@ html,body {
     width: 100vw;
     margin:0;
     padding:0;
+    font-family: Helvetica Neue;
 }
 .white {
     background-color: #ffffff;
@@ -10,7 +11,7 @@ html,body {
     transition: all ease 400ms;
 }
 .container {
-    height: 100%;
+    height: fit-content;
     background-color: white;
     background-color: #FAF5E9;
 }
@@ -27,7 +28,6 @@ html,body {
     align-items: center;
     justify-content: flex-end;
     color: #9B3303;
-    font-family: Helvetica Neue;
     font-weight: bold;
 }
 .all-nav p {

@@ -14,9 +14,15 @@
                 <input type="password" name="login-password" id="login-password">
                 <label for="login-password" id="label__password">PASSWORD</label>
             </div>
-            <button type="submit" value="submit ">
-                LOG IN
-            </button>
+            <div class="submit-button">
+                <button type="submit" value="submit ">
+                    LOG IN
+                </button>
+                <fb:login-button 
+                    scope="public_profile,email"
+                    onlogin="checkLoginState();">
+              </fb:login-button>
+            </div>
         </form>
         <button class="none" type="button">
             LOG IN
@@ -40,9 +46,15 @@
                 <input type="password" name="register-confirm-password" id="register-confirm-password ">
                 <label for="register-confirm-password">CONFIRM PASSWORD</label>
             </div>
-            <button type="submit" value="submit ">
-                REGISTER
-            </button>
+            <div class="submit-button">
+                <button type="submit" value="submit ">
+                    REGISTER
+                </button>
+                <fb:login-button 
+                    scope="public_profile,email"
+                    onlogin="checkLoginState();">
+              </fb:login-button>
+            </div>
         </form>
         <button class="" type="button">
             REGISTER
