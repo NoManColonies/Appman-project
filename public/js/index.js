@@ -13,7 +13,7 @@ window.onload = () => {
             }
         });
     });
-    navBar.observe(document.querySelector('.color'));
+    navBar.observe(document.querySelector('.nav__detector'));
 };
 function checkLoginState() {
     FB.getLoginStatus(function (response) {
@@ -25,7 +25,9 @@ async function statusChangeCallback(response) {
     const { userID, accessToken } = response.authResponse;
     const result = await fetch(`https://graph.facebook.com/v8.0/${userID}?fields=picture,id,name&access_token=${accessToken}`, { method: "get" });
     const data = await result.json();
-    const fetchedUserData = await fetch("/api/login", { method: "POST" });
+    const login = new FormData();
+    login.append("username", data.name);
+    const fetchedUserData = await fetch("/api/login", { method: "POST", body: login });
     const userData = await fetchedUserData.json();
     if (userData[0] !== undefined && userData[0].username === data.name) {
         console.log("logged in(1).");

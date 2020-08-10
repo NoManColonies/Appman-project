@@ -31,8 +31,11 @@ class AuthController {
         return response.redirect("/register")
     }
 
-    async checkLoginState({ response }) {
-        const result = await Database.select("username").from("profiles");
+    async checkLoginState({ response, request }) {
+        const { username } = request.body;
+
+        const result = await Database.select("username").from("profiles").where({ username: username });
+        
         return response.send(result);
     }
 }
