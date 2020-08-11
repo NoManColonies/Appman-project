@@ -1,23 +1,19 @@
 "use strict";
 // console.log(FB)
-window.onload = () => {
-    const navBar = new IntersectionObserver((entries, oberver) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                document.querySelector('.navbar').classList.add('white');
-            }
-            else {
-                document.querySelector('.navbar').classList.remove('white');
-            }
-        });
-    });
-    navBar.observe(document.querySelector('.nav__detector'));
-    console.log(onStartUp);
+window.onload = async () => {
+    const validationResult = await fetch("/api/", { method: "POST" });
+    console.log(await validationResult.json());
     onStartUp.run();
 };
 function checkLoginState() {
-    FB.getLoginStatus(function (response) {
+    FB.getLoginStatus(async function (response) {
         statusChangeCallback(response);
+        // const { userID, accessToken } = response.authResponse;
+        // const fd = new FormData();
+        // fd.append("userID", userID);
+        // fd.append("accessToken", accessToken);
+        // // console.log(userID, accessToken);
+        // await fetch("/api/facebook", { method: "POST", body: fd});
     });
 }
 async function statusChangeCallback(response) {
@@ -25,20 +21,23 @@ async function statusChangeCallback(response) {
     const { userID, accessToken } = response.authResponse;
     const result = await fetch(`https://graph.facebook.com/v8.0/${userID}?fields=picture,id,name&access_token=${accessToken}`, { method: "get" });
     const data = await result.json();
-    const login = new FormData();
-    login.append("username", data.name);
-    const fetchedUserData = await fetch("/api/login", { method: "POST", body: login });
-    const userData = await fetchedUserData.json();
-    if (userData[0] !== undefined && userData[0].username === data.name) {
-        console.log("logged in(1).");
-        return;
-    }
     const fd = new FormData();
     fd.append("username", data.name);
+    const fetchedUserData = await fetch("/api/login", { method: "POST", body: fd });
+    const userData = await fetchedUserData.json();
+    if (userData[0] !== undefined && userData[0].username === data.name) {
+        console.log("logged in.");
+        // fd.append("data", "some data");
+        // const retrieveUpdatedData = await fetch("/api/", { method: "POST", body: fd });
+        // console.log(await retrieveUpdatedData.json());
+        window.location.href = "/";
+        return;
+    }
     fd.append("email", `${data.id}@facebook.com`);
     fd.append("password", `facebook:${data.id}`);
     await fetch("/api/register", { method: "POST", body: fd });
-    console.log("logged in(2).");
+    console.log("logged in. Successfully registered user.");
+    window.location.href = "/login-register";
 }
 class RunOnStartUp {
     constructor() {
@@ -46,6 +45,7 @@ class RunOnStartUp {
             this.tasks.push(task);
         };
         this.run = () => {
+            console.log("running startup tasks.");
             this.tasks.forEach(task => {
                 task();
             });

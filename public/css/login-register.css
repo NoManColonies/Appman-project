@@ -44,6 +44,7 @@ form {
     justify-content:center;
     flex-direction: column;
     box-shadow: 2px 2px 10px #d8d3ca;
+    transition: all ease-out 400ms;
 }
 .register-whenregister {
     width: 550px;
@@ -54,6 +55,8 @@ form {
     justify-content:center;
     flex-direction: column;
     box-shadow: 2px 2px 10px #d8d3ca;
+    transition: all ease-out 400ms;
+
 }
 .login input {
     width: 100%;
@@ -116,12 +119,16 @@ form {
     background-color: #FDDFA3;
     height: 500px;
     box-shadow: 2px 2px 10px #d8d3ca;
+    transition: all ease-out 400ms;
+
 }
 .register-whenlogin {
     width: 200px;
     background-color: #FDDFA3;
     height: 500px;
     box-shadow: 2px 2px 10px #d8d3ca;
+    transition: all ease-out 400ms;
+
 }
 .register {
     display: flex;
