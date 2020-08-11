@@ -137,7 +137,7 @@ class AuthController {
         return response.send(result);
     }
 
-    async logoutUser ({ response, session }) {
+    async logoutUser ({ session }) {
         await Database.collection("user_profile").where({
             username: tokens.owner
         }).update({
@@ -146,13 +146,18 @@ class AuthController {
         tokens.token = "";
         tokens.owner = "";
         session.put('token', "");
-        session.put('owner', "");
-        
-        return response.redirect("/");
+        session.put('owner', "");        
     }
 
-    async addProduct ({  }) {
+    async addProduct ({request,response }) {
+        const {productname , priceday , deposit , color , size , quantity , description} = request.body;
+        console.log(request.body)
+        await Database.collection('product_list').insert({ name:productname, price_p_day:priceday ,deposit:deposit,type:[color , size , quantity , description]});
 
+        // return response.redirect("/test")
+    }
+    addp ({view}) {
+        return view.render("/test")
     }
 
     async genToken (session) {
@@ -173,7 +178,6 @@ class AuthController {
         }
         console.log("Token: " + tokens.token, test);
     }
-
     async verifyToken ({ response, session }) {
         if (tokens.token !== session.get('token')) {
             tokens.token = session.get('token');
