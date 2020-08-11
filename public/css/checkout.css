@@ -12,9 +12,10 @@
 .first-page , .sec-page , .third-page{
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
+    margin-bottom: 15vh;
 }
 .first-page-box , .sec-page-box , .third-page-box{
     margin-top: 20vh;
@@ -111,7 +112,7 @@
 .success-button {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .none {
     display: none;
@@ -156,10 +157,10 @@
     display: grid;
     text-align: center;
     font-size: 50px;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .img-payment-successful img{
-    width: 200px;
+    width: 150px;
 }
 .text-payment-successful p {
     margin: 0;
