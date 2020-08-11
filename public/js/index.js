@@ -1,8 +1,6 @@
 "use strict";
 // console.log(FB)
 window.onload = () => {
-    // setTimeout(checkLoginState, 3000);
-    // document.querySelector('.fb-login-button')!.click();
     const navBar = new IntersectionObserver((entries, oberver) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -14,6 +12,8 @@ window.onload = () => {
         });
     });
     navBar.observe(document.querySelector('.nav__detector'));
+    console.log(onStartUp);
+    onStartUp.run();
 };
 function checkLoginState() {
     FB.getLoginStatus(function (response) {
@@ -40,3 +40,17 @@ async function statusChangeCallback(response) {
     await fetch("/api/register", { method: "POST", body: fd });
     console.log("logged in(2).");
 }
+class RunOnStartUp {
+    constructor() {
+        this.addNewTask = (task) => {
+            this.tasks.push(task);
+        };
+        this.run = () => {
+            this.tasks.forEach(task => {
+                task();
+            });
+        };
+        this.tasks = [];
+    }
+}
+const onStartUp = new RunOnStartUp();

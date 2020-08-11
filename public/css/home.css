@@ -125,11 +125,11 @@
 {
     background-color: grey;
     border-radius: 20px;
-    min-width: 260px;
+    width: 260px;
     height: 300px;
     /* position: absolute; */
     display: grid;
-    grid-template-rows: 75% 25%;        
+    grid-template-rows: 200px 100px;        
     top: 20%;
     left: 20%;
 }
@@ -141,9 +141,9 @@
 
 .item__frame img {
     position: absolute;
-    top: -10%;
-    left: -25%;
-    width: 200px;
+    top: 10%;
+    left: -55%;
+    width: 340px;
     /* height: 200px; */
     /* background-color: red; */
 }

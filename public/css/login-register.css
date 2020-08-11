@@ -28,6 +28,13 @@ form {
     transform: translateY(-180%);
     transition: transform ease 300ms;
 }
+
+.label__focus
+{
+    transform: translateY(-180%);
+    transition: transform ease 300ms;
+}
+
 .login-whenlogin {
     width: 550px;
     height: 500px;

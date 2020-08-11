@@ -1,8 +1,5 @@
 // console.log(FB)
 window.onload = () => {
-    // setTimeout(checkLoginState, 3000);
-    // document.querySelector('.fb-login-button')!.click();
-
     const navBar = new IntersectionObserver((entries, oberver) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -15,6 +12,8 @@ window.onload = () => {
 
     navBar.observe(document.querySelector('.nav__detector')!);
 
+    console.log(onStartUp)
+    onStartUp.run();
 };
 
 function checkLoginState() {
@@ -53,3 +52,24 @@ async function statusChangeCallback(response: Object){
 
     console.log("logged in(2).")
 }
+
+class RunOnStartUp
+{
+    private tasks: Function[];
+    
+    constructor() {
+        this.tasks = [];
+    }
+    
+    public addNewTask = (task: Function) => {
+        this.tasks.push(task);
+    }
+    
+    public run = () => {
+        this.tasks.forEach(task => {
+            task();
+        });
+    }
+}
+
+const onStartUp = new RunOnStartUp();
