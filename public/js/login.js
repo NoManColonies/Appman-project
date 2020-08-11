@@ -20,5 +20,24 @@ document.querySelector('#login-password').addEventListener('input', () => {
 onStartUp.addNewTask(() => {
     document.querySelector('#login-username').value = "";
     document.querySelector('#login-password').value = "";
+    const loginTab = document.querySelector('#login_tab');
+    const registerTab = document.querySelector('#register_tab');
+    const loginForm = document.querySelector('#login_form');
+    const registerForm = document.querySelector('#register_form');
+    const loginSec = document.querySelector('.login');
+    const registerSec = document.querySelector('.register');
+    const onClick = () => {
+        loginTab.classList.toggle("none");
+        registerTab.classList.toggle("none");
+        loginSec.classList.toggle("login-whenlogin");
+        registerSec.classList.toggle("register-whenlogin");
+        loginSec.classList.toggle("login-whenregister");
+        registerSec.classList.toggle("register-whenregister");
+        loginForm.classList.toggle("none");
+        registerForm.classList.toggle("none");
+        document.querySelector('#login-username').value = "";
+        document.querySelector('#login-password').value = "";
+    };
+    loginTab.addEventListener('click', onClick);
+    registerTab.addEventListener('click', onClick);
 });
-console.log(onStartUp);

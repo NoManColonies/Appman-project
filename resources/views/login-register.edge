@@ -5,58 +5,53 @@
 @section('content')
 <div class="bodycontent">
     <div class="login login-whenlogin">
-        <form class="" action="" method="get">
+        <form class="" action="{{ route("/login") }}" method="POST" id="login_form">
+            {{ csrfField() }}
             <div class="inputbox">
-                <input type="text" name="login-username" id="login-username">
-                <label for="login-username" id="label__username">USERNAME</label>
+                <input type="text" name="username" id="login-username">
+                <label for="username" id="label__username">USERNAME</label>
             </div>
             <div class="inputbox">
-                <input type="password" name="login-password" id="login-password">
-                <label for="login-password" id="label__password">PASSWORD</label>
+                <input type="password" name="password" id="login-password">
+                <label for="password" id="label__password">PASSWORD</label>
             </div>
             <div class="submit-button">
                 <button type="submit" value="submit ">
                     LOG IN
                 </button>
-                <fb:login-button 
-                    scope="public_profile,email"
-                    onlogin="checkLoginState();">
-              </fb:login-button>
             </div>
         </form>
-        <button class="none" type="button">
+        <button class="none" type="button" id="login_tab">
             LOG IN
         </button>
     </div>
     <div class="register register-whenlogin">
-        <form class="none" action="" method="get">
+        <p>{{ok}}</p>
+        <form class="none" action="{{ route("/login-register") }}" method="post" id="register_form">
+            {{ csrfField() }}
             <div class="inputbox">
-                <input type="text" name="register-name" id="register-name">
-                <label for="register-name">NAME</label>
+                <input type="text" name="username" id="register-username">
+                <label for="username">USERNAME</label>
             </div>
             <div class="inputbox">
-                <input type="text" name="ergister-username" id="register-username">
-                <label for="register-username">USERNAME</label>
+                <input type="text" name="email" id="register-name">
+                <label for="email">EMAIL</label>
             </div>
             <div class="inputbox">
-                <input type="password" name="register-password" id="register-password">
-                <label for="register-password">PASSWORD</label>
+                <input type="password" name="password" id="register-password">
+                <label for="password">PASSWORD</label>
             </div>
             <div class="inputbox">
-                <input type="password" name="register-confirm-password" id="register-confirm-password ">
-                <label for="register-confirm-password">CONFIRM PASSWORD</label>
+                <input type="password" name="confirm-password" id="register-confirm-password ">
+                <label for="confirm-password">CONFIRM PASSWORD</label>
             </div>
             <div class="submit-button">
                 <button type="submit" value="submit ">
                     REGISTER
                 </button>
-                <fb:login-button 
-                    scope="public_profile,email"
-                    onlogin="checkLoginState();">
-              </fb:login-button>
             </div>
         </form>
-        <button class="" type="button">
+        <button class="" type="button" id="register_tab">
             REGISTER
         </button>
     </div>
