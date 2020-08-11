@@ -5,12 +5,10 @@ const Schema = use('Schema')
 
 class ProfilesSchema extends Schema {
   up () {
-    this.create('profiles', (table) => {
-      table.increments()
-      table.string('username', 80).notNullable().unique()
-      table.string('email', 254).notNullable().unique()
-      table.string('password', 60).notNullable()
-      table.timestamps()
+    this.create('profiles', (collection) => {
+      collection.index('title_index', {
+        title: 1
+      })
     })
   }
 
