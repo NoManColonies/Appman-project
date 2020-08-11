@@ -18,16 +18,16 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-Route.on('/').render('main')
+Route.on('/').render("main")
 // Route.get('/login', "AuthController.login");
 // Route.get('/login',"AuthController.login");
 // Route.on('/register').render('/login-register');
 Route.post('/login-register',"AuthController.register");
 Route.post("/login","AuthController.loginUser");
-Route.post("/test","AuthController.addProduct");
+Route.post("/wow","AuthController.addProduct");
 // Route.post('/register',"AuthController.register");
 Route.get('/login-register', "AuthController.login");
-Route.on('/test').render('test');
+Route.get('/test', "AuthController.addp");
 Route.on('/shop').render('shop');
 Route.on('/detail').render('detail');
 Route.on('/update').render('/update-stock');
@@ -38,6 +38,8 @@ Route.post("/api/login", "AuthController.checkLoginState")
 Route.post("/api/", "AuthController.verifyToken")
 Route.post("/api/facebook", "AuthController.loginViaFacebook")
 Route.post("/api/logout", "AuthController.logoutUser")
+Route.post("/api/logologout", "AuthController.verifyLogin")
+
 // Route.post("/", "AuthController.verifyToken")
 
 // Route.get("/login",(context) => {
