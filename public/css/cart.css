@@ -9,7 +9,8 @@
     font-weight: 600;
     margin: 20px;
     letter-spacing: 1px;
-    cursor: pointer;;
+    cursor: pointer;
+    outline: no;
 }
 .stay button{
     background-color: #FDDFA3;
