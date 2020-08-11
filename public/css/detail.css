@@ -1,14 +1,30 @@
 .body-content {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 50% 50%;
     width: 100%;
     top: 50%;    
     font-family: Helvetica Neue;
 }
 .gallery {
-    background-color: cadetblue;
     height: 700px;
     grid-column: 1;
+}
+.all-sub-option {
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+.sub-option {
+    margin-top:30px;
+    font-size:20px;
+    font-weight:100;
+}
+.sub-option label {
+    display: block;
+    margin-top: 20px;
+}
+.sub-option select,input {
+    margin-top: 15px;
+    outline: none;
 }
 .product-detail {
     background-color: #FAF5E9;
@@ -19,14 +35,14 @@
     justify-content: center;
     letter-spacing: 1px;
 }
-.text {
+.option {
     display: flex;
     width: 500px;
     position: absolute;
     display: flex;
     flex-direction: column;
 }
-.text select {
+.option select {
     width: 60%;
     border: none;
     padding: 6px 20px;
@@ -37,7 +53,7 @@
     font-size: medium;
     cursor: pointer;
 }
-.text input[type="number"] {
+.option input[type="number"] {
     width: 30%;
     border: none;
     padding: 6px 20px;
@@ -70,4 +86,119 @@
 .buy {
     color: white;
     background-color: #5F5F5F;
+}
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.column {
+    float: left;
+    width: 12%;
+    padding: 2px;
+}
+.row img {
+    cursor: pointer;
+}
+.expand-pic {
+    width: 350px;
+    height: 350px;
+    margin-left: 20px;
+    background-color: red;
+}
+.descrip-review-box {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 0px 100px 100px 100px;
+}
+.descrip-review-box-maintext {
+    display: flex;
+}
+.descrip-review-text {
+    font-weight: bold;
+    color: #5F5F5F;
+    letter-spacing: 2px;
+    width: 150px;
+    text-align: center;
+    padding-top: 10px;
+    flex-direction: column;
+    margin-right: 50px;
+}
+.focus-text {
+    border-top: #9B3303 solid 3px;
+}
+.description {
+    width: 800px;
+}
+.review {
+}
+.sub-text-description {
+    color: #5F5F5F;
+    padding-top: 30px;
+}
+.none {
+    display: none;
+}
+.fa {
+    color: #e4dab1;
+}
+.checked {
+    color: #FAD42D;
+}
+.review-topic {
+    display: flex;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.all-star {
+    flex-direction: column;
+    width: fit-content;
+}
+.review-rate-text {
+    flex-direction: column;
+    width: fit-content;
+    margin-left: 50px;
+    color: #9B3303;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.review-box {
+    display: grid;
+    grid-template-columns: 8% 92%;
+    background-color: white;
+    padding: 30px;
+    grid-column-gap: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.review-box-profilepic {
+    grid-column: 1;
+}
+.review-box-profilepic img {
+    border-radius: 50%;
+}
+.review-box-alldetail {
+    grid-column: 2;
+}
+.review-box-comment {
+    width: 800px;
+    padding: 10px;
+}
+.review-box-name , .review-box-ratestar {
+    padding-left: 10px;
+}
+.add-new-review {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    margin-top: 100px;
+}
+.add-new-review button {
+    outline: none;
+    border: #FAD42D solid 3px;
+    color: #FAD42D;
+    background-color: #FAF5E9;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
 }

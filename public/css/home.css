@@ -109,14 +109,14 @@
     font-size: xxx-large;
     letter-spacing: 2px;
 }
-.text-first {
+.main-text {
     position: absolute;
     top: 40%;
     left: 0;
     right: 0;
     text-align: center;
 }
-.text-first p {
+.main-text p {
     margin: 0;
     padding: 0;
 }

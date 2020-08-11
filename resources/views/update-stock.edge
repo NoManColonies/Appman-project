@@ -1,0 +1,68 @@
+@layout('mainlayout')
+@section('css')
+{{style('css/update-stock')}}
+@endsection
+@section('content')
+@layout('mainlayout')
+@section('css')
+{{style("css/detail")}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@endsection
+@section('content')
+<div class="body-content">
+    <div class="gallery">
+        <div class="column">
+            <div class="row">
+              <img src="images/gallery.jpg" onclick="myFunction(this);">
+            </div>
+            <div class="row">
+              <img src="images/gallery1.jpg" onclick="myFunction(this);">
+            </div>
+            <div class="row">
+              <img src="images/gallery2.jpg" onclick="myFunction(this);">
+            </div>
+            <div class="row">
+              <img src="images/gallery3.jpg" onclick="myFunction(this);">
+            </div>
+        </div>
+        <div class="expand-pic">
+
+        </div>
+    </div>
+    <div class="product-detail">
+        <div class="option">
+            <div class="main-option" style="font-size:40px;font-weight:bold;">WOODDY MEMES</div>
+            <div class="main-option" style="letter-spacing:2px;font-size: 25px;font-weight:200;">PRICE/DAY 999.00 THB</div>
+            <div class="all-sub-option">
+                <div class="sub-option">
+                    <label for="color">Size</label>
+                    <label for="Size">Color</label>
+                    <label for="Quantity">Color</label>
+                </div>
+                <form action="" method="post">
+                    <div class="sub-option">
+                        <select name="color" id="color">
+                            <option value="pink">pink</option>
+                            <option value="black">black</option>
+                        </select>
+                        <select name="size" id="size">
+                            <option value="s">s</option>
+                            <option value="ss">ss</option>
+                        </select>
+                        <input type="number" value="1">
+                    </div>
+                </div>
+                <div class="update-button">
+                    <button class="update" type="submit">UPDATE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="copyright">
+        Copyright © 2007-2009 POPRENT.
+    </div>
+</footer>
+@endsection
+@endsection

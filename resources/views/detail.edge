@@ -1,35 +1,158 @@
 @layout('mainlayout')
 @section('css')
 {{style("css/detail")}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 @section('content')
 <div class="body-content">
     <div class="gallery">
+        <div class="column">
+            <div class="row">
+              <img src="images/gallery.jpg" onclick="myFunction(this);">
+            </div>
+            <div class="row">
+              <img src="images/gallery1.jpg" onclick="myFunction(this);">
+            </div>
+            <div class="row">
+              <img src="images/gallery2.jpg" onclick="myFunction(this);">
+            </div>
+            <div class="row">
+              <img src="images/gallery3.jpg" onclick="myFunction(this);">
+            </div>
+        </div>
+        <div class="expand-pic">
 
+        </div>
     </div>
     <div class="product-detail">
-        <div class="text">
-            <div class="sub-text" style="font-size:40px;font-weight:bold;">WOODDY MEMES</div>
-            <div class="sub-text" style="letter-spacing:2px;font-size: 25px;font-weight:200;">PRICE/DAY 999.00 THB</div>
-            <div class="sub-sec-text" style="margin-top:30px;font-size:20px;font-weight:100;"><label for="color">Color</label>
-                <select name="color" id="color">
-                    <option value="pink">pink</option>
-                    <option value="black">black</option>
-                </select>
+        <div class="option">
+            <div class="main-option" style="font-size:40px;font-weight:bold;">WOODDY MEMES</div>
+            <div class="main-option" style="letter-spacing:2px;font-size: 25px;font-weight:200;">PRICE/DAY 999.00 THB</div>
+            <div class="all-sub-option">
+                <div class="sub-option">
+                    <label for="color">Size</label>
+                    <label for="Size">Color</label>
+                    <label for="Quantity">Color</label>
+                </div>
+                <div class="sub-option">
+                    <select name="color" id="color">
+                        <option value="pink">pink</option>
+                        <option value="black">black</option>
+                    </select>
+                    <select name="size" id="size">
+                        <option value="s">s</option>
+                        <option value="ss">ss</option>
+                    </select>
+                    <input type="number" value="1">
+                </div>
             </div>
-            <div class="sub-sec-text" style="margin-top:15px;font-size:20px;font-weight:100;"><label for="color">Size</label>
-                <select name="size" id="size">
-                    <option value="s">s</option>
-                    <option value="ss">ss</option>
-                </select>
-            </div>
-            <div class="sub-sec-text"style="margin-top:15px;font-size:20px;font-weight:100;">Quantity
-            <input type="number"> </div>
             <div class="add-buy-button">
                 <button class="add" type="submit">ADD TO CART</button>
                 <button class="buy" type="submit">BUY NOW</button>
             </div>
         </div>
     </div>
+    <div class="descrip-review-box">
+        <div class="descrip-review-box-maintext">
+            <div class="descrip-review-text ">
+                DESCRIPTION
+            </div>    
+            <div class="descrip-review-text focus-text">
+                REVIEW
+            </div>
+        </div>
+        <div class="description none">
+            <div class="sub-text-description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. 
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-topic">
+                <div class="all-star">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div class="review-rate-text">
+                    RATING 5/5
+                </div>
+            </div>
+            <div class="all-review-box">
+                <div class="review-box">
+                    <div class="review-box-profilepic">
+                        <img src="images/profilepic.jpg" alt="">
+                    </div>
+                    <div class="review-box-alldetail">
+                        <div class="review-box-name">Chubby</div>
+                        <div class="review-box-ratestar">                    <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="review-box-comment">
+                            Contrary to popular belief, Lorem Ipsum is not simply random text.
+                            It has roots in a piece of classical Latin literature from 45 BC,
+                            making it over 2000 years old.
+                        </div>
+                    </div>
+                </div>
+                <div class="review-box">
+                    <div class="review-box-profilepic">
+                        <img src="images/profilepic.jpg" alt="">
+                    </div>
+                    <div class="review-box-alldetail">
+                        <div class="review-box-name">Chubby</div>
+                        <div class="review-box-ratestar">                    <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="review-box-comment">
+                            Contrary to popular belief, Lorem Ipsum is not simply random text.
+                            It has roots in a piece of classical Latin literature from 45 BC,
+                            making it over 2000 years old.
+                        </div>
+                    </div>
+                </div>
+                <div class="review-box">
+                    <div class="review-box-profilepic">
+                        <img src="images/profilepic.jpg" alt="">
+                    </div>
+                    <div class="review-box-alldetail">
+                        <div class="review-box-name">Chubby</div>
+                        <div class="review-box-ratestar">                    <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="review-box-comment">
+                            Contrary to popular belief, Lorem Ipsum is not simply random text.
+                            It has roots in a piece of classical Latin literature from 45 BC,
+                            making it over 2000 years old.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-new-review">
+                <button type="button">+ ADD NEW REVIEW</button>
+            </div>
+        </div>
+    </div>
 </div>
+<footer>
+    <div class="copyright">
+        Copyright © 2007-2009 POPRENT.
+    </div>
+</footer>
 @endsection

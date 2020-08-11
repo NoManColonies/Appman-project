@@ -3,34 +3,32 @@
 {{style("css/test")}}
 @endsection
 @section('content')
-<div class="bodycontent">
-    <div class="login ">
-            <button type="submit" value="submit ">
-                LOG IN
-            </button>
+<div class="test">
+    <div class="test-copyright">
+        Copyright © 2007-2009 POPRENT.
     </div>
-    <div class="register">
-        <form action="" method="get">
-            <div class="inputbox">
-                <input type="text" name="name" id="name">
-                <label for="name">NAME</label>
-            </div>
-            <div class="inputbox">
-                <input type="text" name="username" id="username">
-                <label for="username">USERNAME</label>
-            </div>
-            <div class="inputbox">
-                <input type="password" name="password" id="password">
-                <label for="password">PASSWORD</label>
-            </div>
-            <div class="inputbox">
-                <input type="password" name="confirm-password" id="confirm-password ">
-                <label for="confirm-password">CONFIRM PASSWORD</label>
-            </div>
-            <button type="submit" value="submit ">
-                REGISTER
-            </button>
-        </form>
-    </div>
+</div>
+<div class="topic-option">
+    <label for="shipping">SHIPPING</label>
+    <label for="address">ADDRESS</label>
+    <label for="tel">TEL.</label>
+    <label for="payment">PAYMENT</label>
+</div>
+<div class="detail-option">
+    <select name="shipping" id="shipping">
+        <option value="ems">EMS</option>
+        <option value="register">REGISTER</option>
+        <option value="kerry">KERRY</option>
+        <option value="ninja">NINJA</option>
+    </select>
+    <p>146/1 m.9 xxxxxxxxxxxxxxxxxxxxxxx
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+    <p>0610571188</p>
+    <select name="payment" id="payment">
+        <option value="scb">SCB</option>
+        <option value="next">NEXT</option>
+        <option value="kbank">KBANK</option>
+    </select>
 </div>
 @endsection

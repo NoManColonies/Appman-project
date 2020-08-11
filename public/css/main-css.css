@@ -32,6 +32,14 @@ html,body {
 }
 .all-nav p {
     margin-right: 30px;
+    cursor: pointer;
+}
+.all-nav a {
+    color: #9B3303;
+    text-decoration: none;
+}
+.all-nav a:active {
+    text-decoration: none;
 }
 .logo img{
     height: 40px;
@@ -49,11 +57,12 @@ html,body {
     height: 100%;
 }
 .icon-navbar {
-    width: 150px;
+    width: 170px;
     margin-right: 20px;
 }
 .icon-navbar img {
-    padding-right: 10px;
+    padding-right: 15px;
+    cursor: pointer;
 }
 .maincontent img {
     width: 100%;
@@ -64,5 +73,15 @@ html,body {
 }
 footer {
     width: 100vw;
-    height: 200px;
+    height: 70px;
+    display: flex;
+    background-color: #F1D28C;
+    color: white;
+}
+.copyright {
+    display: flex;
+    width: 100%;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
 }

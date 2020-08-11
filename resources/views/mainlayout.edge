@@ -15,16 +15,15 @@
                 <img src="images/logo.svg">
             </div>
             <div class="all-nav">
-                <p>HOME</p>
-                <p>SHOP</p>
-                <p>PURCHASE</p>
-                <p>PRODUCTS</p>
+                <p><a href="/">HOME</a></p>
+                <p><a href="shop">SHOP</a></p>
+                <p><a href="products">PRODUCTS</a></p>
                 <p>ABOUT US</p>
                 <div class="icon-navbar">
-                    <img src="images/search-bar.svg">
-                    <img src="images/account.svg">
-                    <img src="images/shopping-cart.svg">
-                    <img src="images/logout.svg">
+                    <img src="{{ assetsUrl("images/search-bar.svg") }}" alt="">
+                    <a href="login-register"><img src="{{ assetsUrl("images/account.svg") }}" alt=""></a>
+                    <a href="cart"><img src="{{ assetsUrl("images/shopping-cart.svg") }}" alt=""></a>
+                    <img src="{{ assetsUrl("images/logout.svg") }}" alt="">
                 </div>
             </div>
         </div>
@@ -33,6 +32,11 @@
             @!section('content')
         </div>
     </div>
+    {{script("js/index")}}
+    <div id="fb-root"></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0&appId=1012042575911613&autoLogAppEvents=1" nonce="clIVpeU5"></script>
 <footer>
 </footer>
+</body>
 </html>
