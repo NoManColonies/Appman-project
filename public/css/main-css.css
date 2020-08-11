@@ -34,6 +34,13 @@ html,body {
     margin-right: 30px;
     cursor: pointer;
 }
+.all-nav a {
+    color: #9B3303;
+    text-decoration: none;
+}
+.all-nav a:active {
+    text-decoration: none;
+}
 .logo img{
     height: 40px;
 }
