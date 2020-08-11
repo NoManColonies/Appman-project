@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="test">
-    <div class="form">
+    <div class="form" action="{{ route("/test") }}" method="post">
         <div class="label">
         <label for="Product-name">Produtc's name</label>
         <input type="text" name="Product-name" id="Product-name">

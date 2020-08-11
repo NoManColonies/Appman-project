@@ -24,6 +24,7 @@ Route.on('/').render('main')
 // Route.on('/register').render('/login-register');
 Route.post('/login-register',"AuthController.register");
 Route.post("/login","AuthController.loginUser");
+Route.post("/test","AuthController.addProduct");
 // Route.post('/register',"AuthController.register");
 Route.get('/login-register', "AuthController.login");
 Route.on('/test').render('test');

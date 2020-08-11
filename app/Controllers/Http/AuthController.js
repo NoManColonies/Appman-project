@@ -151,6 +151,10 @@ class AuthController {
         return response.redirect("/");
     }
 
+    async addProduct ({  }) {
+
+    }
+
     async genToken (session) {
         const hash = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
