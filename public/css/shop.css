@@ -19,6 +19,13 @@
     padding-bottom: 1rem;
     padding-left: 10px;
     border-bottom: #A5A5A5 solid 1px;
+    cursor: pointer;
+}
+.sidebar-text:hover {
+    color: #272727;
+}
+.sidebar-text:active {
+    color: #9B3303;
 }
 .all-sidebar-text {
     display: flex;
@@ -54,7 +61,4 @@
 }
 .inside {
     padding: 0px 10px 5px 10px;
-}
-footer {
-    background-color: #FDDFA3;
 }
