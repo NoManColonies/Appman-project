@@ -28,6 +28,7 @@ Route.on('/test').render('test')
 Route.on('/shop').render('shop')
 Route.on('/detail').render('detail')
 Route.on('/checkout').render('checkout')
+Route.on('/cart').render('cart')
 
 Route.post("/api/register","AuthController.registerUser")
 Route.post("/api/login", "AuthController.checkLoginState")
