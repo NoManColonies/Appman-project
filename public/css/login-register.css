@@ -126,9 +126,13 @@ form {
     align-items:center;
     justify-content:center;
 }
-footer{
-    background-color: #FDDFA3;
-}
 .none {
     display: none;
+}
+button {
+    cursor: pointer;
+    outline: none;
+}
+button:hover {
+    transform: translateY(-5%);
 }
