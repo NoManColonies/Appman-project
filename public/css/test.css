@@ -1,11 +1,9 @@
 .test {
-    height: 1000px;
-    color: black;
+    height: 100vh;
     display: flex;
-}
-.test-copyright {
-    width: 100%;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+.label {
+    margin: 20px;
 }
