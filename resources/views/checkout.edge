@@ -1,0 +1,147 @@
+@layout('mainlayout')
+@section('css')
+{{style('css/checkout')}}
+@endsection
+@section('content')
+<div class="first-page none">
+    <div class="first-page-box">
+        <div class="first-page-content">
+            <div class="timeline">
+                <div class="firststep checking">
+                    <div class="number">1</div>
+                </div>
+                <div class="line-container">
+                    <div class="line"></div>
+                </div>
+                <div class="secondstep">
+                    <div class="number">2</div>
+                </div>
+                <div class="line-container">
+                    <div class="line"></div>
+                </div>
+                <div class="thirdstep">
+                    <div class="number">3</div>
+                </div>
+            </div>
+            <div class="first-page-option">
+                <div class="first-page-picture-product">
+                    <img src="images/categories-toy.jpg" alt="">
+                </div>
+                <div class="first-page-detail-option">
+                    <div class="product-name">
+                        <p>WOODDY MEMES</p>
+                    </div>
+                    <div class="first-page-sub-detail-option">
+                        <p>Color : Pink</p>
+                        <p>Size : ss</p>
+                        <p>Quantity : x2</p>
+                        <p>Price/day : 999.99 THB</p>
+                        <p>Deposit : 200 THB</p>
+                    </div>
+                    <div class="first-page-totalprice">
+                        <p>Total Price : 2199.98 THB</p>
+                    </div>
+                </div>
+            </div>
+            <div class="next-button" type="button">
+                <button type="button">NEXT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sec-page none">
+    <div class="sec-page-box">
+        <div class="sec-page-content">
+            <div class="timeline">
+                <div class="firststep checked">
+                    <div class="number">1</div>
+                </div>
+                <div class="line-container">
+                    <div class="line"></div>
+                </div>
+                <div class="secondstep checking">
+                    <div class="number">2</div>
+                </div>
+                <div class="line-container">
+                    <div class="line"></div>
+                </div>
+                <div class="thirdstep">
+                    <div class="number">3</div>
+                </div>
+            </div>
+            <div class="sec-page-option">
+                <div class="sec-page-sub-option">
+                    <label for="shipping">SHIPPING</label>
+                    <select name="shipping" id="shipping">
+                        <option value="ems">EMS</option>
+                        <option value="register">REGISTER</option>
+                        <option value="kerry">KERRY</option>
+                        <option value="ninja">NINJA</option>
+                    </select>
+                </div>
+                <div class="sec-page-sub-option">
+                    <label for="address">ADDRESS</label>
+                    <p>146/1 m.9 xxxxxxxxxxxxxxxxxxxxxxx
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                </div>
+                <div class="sec-page-sub-option">
+                    <label for="tel">TEL.</label>
+                    <p>0610571188</p>
+                </div>
+                <div class="sec-page-sub-option">
+                    <label for="payment">PAYMENT</label>
+                    <select name="payment" id="payment">
+                        <option value="scb">SCB</option>
+                        <option value="next">NEXT</option>
+                        <option value="kbank">KBANK</option>
+                    </select>
+                </div>
+            </div>
+            <div class="next-button" type="button">
+                <button type="button">NEXT</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="third-page">
+    <div class="third-page-box">
+        <div class="third-page-content">
+            <div class="timeline">
+                <div class="firststep checked">
+                    <div class="number">1</div>
+                </div>
+                <div class="line-container">
+                    <div class="line"></div>
+                </div>
+                <div class="secondstep checked">
+                    <div class="number">2</div>
+                </div>
+                <div class="line-container">
+                    <div class="line"></div>
+                </div>
+                <div class="thirdstep checking">
+                    <div class="number">3</div>
+                </div>
+            </div>
+            <div class="payment-successful">
+                <div class="img-payment-successful">
+                    <img src="images/payment-success.svg" alt="">
+                </div>
+                <div class="text-payment-successful">
+                    <p>PAYMENT SUCCESSFULL</p>
+                </div>
+            </div>
+            <div class="success-button" type="button">
+                <button type="button">CONTINUE SHOPPING</button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="copyright">
+        Copyright © 2007-2009 POPRENT.
+    </div>
+</footer>
+@endsection
