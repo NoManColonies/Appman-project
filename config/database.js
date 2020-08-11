@@ -26,7 +26,7 @@ module.exports = {
       host: Env.get('DB_HOST', 'localhost'),
       port: Env.get('DB_PORT', 27017),
       username: Env.get('DB_USER', 'manager'),
-      password: Env.get('DB_PASSWORD', 'password'),
+      password: Env.get('DB_PASSWORD', 'qqsscc112233'),
       database: Env.get('DB_DATABASE', 'popRentDB'),
       options: {
         // replicaSet: Env.get('DB_REPLICA_SET', '')
