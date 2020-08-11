@@ -57,11 +57,11 @@ html,body {
     height: 100%;
 }
 .icon-navbar {
-    width: 150px;
+    width: 170px;
     margin-right: 20px;
 }
 .icon-navbar img {
-    padding-right: 10px;
+    padding-right: 15px;
     cursor: pointer;
 }
 .maincontent img {
