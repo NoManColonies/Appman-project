@@ -19,18 +19,26 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 const Route = use("Route");
 
 Route.on('/').render('main')
-Route.get('/login',"AuthController.login");
-Route.get('/register',"AuthController.register");
-Route.post("/login","AuthController.loginUser")
-Route.post('/register',"AuthController.registerUser");
-Route.on('/login-register').render('login-register')
-Route.on('/test').render('test')
-Route.on('/shop').render('shop')
-Route.on('/detail').render('detail')
+Route.on('/login').render('/login');
+// Route.get('/login',"AuthController.login");
+// Route.on('/register').render('/login-register');
+Route.post('/login-register',"AuthController.register");
+Route.post("/login","AuthController.loginUser");
+// Route.post('/register',"AuthController.register");
+Route.get('/login-register', ({ view, request }) => {
+    return view.render("/login-register", { request });
+});
+Route.on('/test').render('test');
+Route.on('/shop').render('shop');
+Route.on('/detail').render('detail');
 
 
-Route.post("/api/register","AuthController.registerUser")
+Route.post("/api/register", "AuthController.registerUser")
 Route.post("/api/login", "AuthController.checkLoginState")
+Route.post("/api/", "AuthController.verifyToken")
+Route.post("/api/facebook", "AuthController.loginViaFacebook")
+Route.post("/api/logout", "AuthController.logoutUser")
+// Route.post("/", "AuthController.verifyToken")
 
 // Route.get("/login",(context) => {
 //     const {view,request,response} = context
