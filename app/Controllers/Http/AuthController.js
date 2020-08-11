@@ -11,14 +11,21 @@ const tokens = {
 }
 
 class AuthController {
-    async login ({ view, request, response }) {
-        // const users = await Database.select("*").from("user").where("name","!=","John");
-        // const users = await Database.select("*")
-        // .from("user")
-        // .where("name","!=","John") หรือ .whereNot({age : 20}) หรือ .whereBetween('age',[18,32])
-        // const users = await Databse.from("user")
-        const name = "chubby";
-        return view.render("login", { name })
+    async login ({ view, session, response }) {
+        const username = session.get('owner');
+        const token = session.get('token');
+        
+        const result = await Database.collection('user_profile').where({ username }).findOne();
+        
+        if (result !== null && argon2.verify(result.token, token)) {
+            tokens.owner = username;
+
+            await this.genToken(session);
+
+            return response.redirect("/");
+        }
+
+        return view.render("/login-register");
     } 
     async loginUser({ session, request, response }) {
         const { username, password } = request.body
