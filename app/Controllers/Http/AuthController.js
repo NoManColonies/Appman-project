@@ -160,6 +160,14 @@ class AuthController {
         return view.render("/test")
     }
 
+    async listProduct ({ view, response, request }) {
+        const { category } = request.body;
+
+        const fetchedData = await Database.collection('product_list').where({ category }).findMany();
+
+        return view.render('/shop', { fetchedData });
+    }
+
     async genToken (session) {
         const hash = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
