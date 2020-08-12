@@ -29,3 +29,66 @@ Run the following command to run startup migrations.
 ```js
 adonis migration:run
 ```
+#### Mongodb schema
+
+Run the following command to create collections.
+
+product collection.
+
+```js
+db.createCollection("product_list", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "owner"],
+      properties: {
+        name: {
+          bsonType: "string"
+        },
+        owner: {
+          bsonType: "string"
+        },
+        type: {
+          bsonType: "array"
+        }
+      }
+    }
+  }
+})
+```
+user collection.
+
+```js
+db.createCollection("user_profile", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["username", "email", "password"],
+      properties: {
+        username: {
+          bsonType: "string"
+        },
+        email: {
+          bsonType: "string"
+        },
+        password: {
+          bsonType: "string"
+        },
+        product: {
+         bsonType: "array"
+        },
+        cart: {
+          bsonType: "array"
+        },
+        token: {
+          bsonType: "string"
+        },
+        user_info: {
+          bsonType: "object"
+        }
+      }
+    }
+  }
+})
+```
+
