@@ -50,6 +50,9 @@ db.createCollection("product_list", {
         },
         type: {
           bsonType: "array"
+        },
+        category: {
+          bsonType: "string"
         }
       }
     }
