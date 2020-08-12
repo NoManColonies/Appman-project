@@ -33,6 +33,8 @@ Route.on('/shop').render('shop');
 Route.on('/detail').render('detail');
 Route.on('/products').render('products');
 Route.on('/update-stock').render('update-stock');
+Route.on('/purchase').render('purchase');
+Route.on('/cart').render('cart');
 
 
 Route.post("/api/register", "AuthController.registerUser")
