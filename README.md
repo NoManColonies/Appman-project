@@ -116,15 +116,30 @@ db.product_list.insertMany([
       deposit: "199",
       color: "pink",
       size: "38",
-      quantity: "3"
+      quantity: "1"
     },
     {
       pricePday: "199",
       deposit: "199",
-      color: "pink",
+      color: "blue",
       size: "38",
-      quantity: "3"
+      quantity: "2"
     }]
   },
+  {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product2.jpg",
+    type: [
+    {
+      pricePday: "255.55",
+      deposit: "300",
+      color: "red",
+      size: "24",
+      quantity: "1"
+    }]
+  }
 ])
 ```
