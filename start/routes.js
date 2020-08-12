@@ -38,3 +38,6 @@ Route.post("/api/login", "AuthController.checkLoginState");
 Route.post("/api/facebook", "AuthController.loginViaFacebook");
 Route.post("/api/logout", "AuthController.logoutUser");
 Route.post("/api/logologout", "AuthController.verifyLogin");
+
+Route.on('/products').render('products');
+Route.on('/update-stock').render('update-stock');

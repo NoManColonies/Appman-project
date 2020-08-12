@@ -12,47 +12,104 @@
 </div>
 <section class="nav__detector">
     <div class="color">
-        <div class="yellow"></div>
-        <div class="yellow2"></div>
+        <div class="yellow">
+            <div class="yellow-text">
+                <div class="yellow-text-main">
+                    easily sell
+                </div>
+                <div class="yellow-text-sub">
+                    add your products now !!
+                </div>
+            </div>
+        </div>
+        <div class="yellow2">
+            <div class="yellow2-text">
+                <div class="yellow2-text-sub">
+                    make some purchase immediately !!
+                </div>
+                <div class="yellow2-text-main">
+                    smoothly buy
+                </div>
+
+            </div>
+        </div>
     </div>
     <div class="sub-categories">
         <p>SHOP BY CATEGORIES</p>
         <div class="sub-cate-all-img">
-            <img class="sub-cate-img1" src="images/categories-accessories.jpg">
-            <img class="sub-cate-img2" src="images/categories-case.jpg">
-            <img class="sub-cate-img3" src="images/categories-makeup.jpg">
-            <img class="sub-cate-img4" src="images/categories-pen.jpg">
-            <img class="sub-cate-img5" src="images/categories-toy.jpg">
+            <div class="sub-cate-img">
+                <img src="{{ assetsUrl("images/categories-accessories.jpg") }}">
+                <p>accessories</p>
+            </div>
+            <div class="sub-cate-img">
+                <img src="{{ assetsUrl("images/categories-case.jpg") }}">
+                <p>case</p>
+            </div>
+            <div class="sub-cate-img">
+                <img src="{{ assetsUrl("images/categories-makeup.jpg") }}">
+                <p>makeup</p>
+            </div>
+            <div class="sub-cate-img">
+                <img src="{{ assetsUrl("images/categories-toy.jpg") }}">
+                <p>toy</p>
+            </div>
+            <div class="sub-cate-img">
+                <img src="{{ assetsUrl("images/categories-pen.jpg") }}">
+                <p>pen</p>
+            </div>
         </div>
     </div>
     <div class="shop-now">
         <div class="item__frame">
             <div class="prime__color">
-                <img src="{{ assetsUrl("images/toy.png") }}" alt="">
-                <p>Name</p>
-                <p>Price</p>
+                <img style="width:300px;" src="{{ assetsUrl("images/toy.png") }}" alt="">
+                <div class="item_frame_text">
+                    <div class="item_frame_text_name">
+                        <p>WOODDY</p>
+                        <p>MEMES</p>
+                    </div>
+                    <div class="item_frame_text_price">
+                        <p>฿999.99</p>
+                    </div>
+                </div>
             </div>
             <div class="sec__color"></div>
         </div>
         <div class="item__frame">
             <div class="prime__color">
-                <img src="{{ assetsUrl("images/case.png") }}" alt="">
-                <p>Name</p>
-                <p>Price</p>
+                <img style="left:-70%;width:280px;" src="{{ assetsUrl("images/case.png") }}" alt="">
+                <div class="item_frame_text">
+                    <div class="item_frame_text_name">
+                        <p>NEONNY</p>
+                        <p>CASE</p>
+                    </div>
+                    <div class="item_frame_text_price">
+                        <p>฿55.5</p>
+                    </div>
+                </div>
             </div>
             <div class="sec__color"></div>
         </div>
         <div class="item__frame">
             <div class="prime__color">
                 <img src="{{ assetsUrl("images/hat.png") }}" alt="">
-                <p>Name</p>
-                <p>Price</p>
+                <div class="item_frame_text">
+                    <div class="item_frame_text_name">
+                        <p>YELLOW LOO</p>
+                        <p>GAP</p>
+                    </div>
+                    <div class="item_frame_text_price">
+                        <p>฿111</p>
+                    </div>
+                </div>
             </div>
             <div class="sec__color"></div>
         </div>
-        <button type="button">
-            GO SHOPPING NOW
-        </button>
+        <div class="see-more-button">
+            <button type="button">
+                <a href="shop">SEE MORE ></a>
+            </button>
+        </div>
     </div>
 </section>
 <footer>
