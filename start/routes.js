@@ -31,6 +31,8 @@ Route.get('/login-register', ({ view, request }) => {
 Route.on('/test').render('test');
 Route.on('/shop').render('shop');
 Route.on('/detail').render('detail');
+Route.on('/products').render('products');
+Route.on('/update-stock').render('update-stock');
 
 
 Route.post("/api/register", "AuthController.registerUser")
