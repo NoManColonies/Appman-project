@@ -11,6 +11,12 @@ const tokens = {
 }
 
 class AuthController {
+    async loadLandingPage ({ view, session }) {
+        const state = await this.verifyLogin(session);
+
+        return view.render("main", { state });
+    }
+
     async login ({ view, session, response }) {
         const username = session.get('owner');
         const token = session.get('token');
@@ -25,7 +31,7 @@ class AuthController {
             return response.redirect("/");
         }
 
-        return view.render("/login-register");
+        return view.render("/login-register", { state: false });
     } 
     async loginUser({ session, request, response }) {
         const { username, password } = request.body
@@ -83,8 +89,6 @@ class AuthController {
     async checkLoginState({ response, request }) {
         const { username } = request.body;
 
-        // const result = await Database.select("username").from("profiles").where({ username: username });
-        // const db = await Database.connect('popRentDB');
         const result = await Database.collection('user_profile').find({ username: username });
         console.log(result);
 
@@ -131,7 +135,7 @@ class AuthController {
 
         await Database.collection("user_profile").where({ username: username }).update({ data: data });
 
-        const result = await Database.collection('user_profile').find({ username: username });
+        const result = await Database.collection('user_profile').where({ username: username }).findOne();
         console.log(result);
 
         return response.send(result);
@@ -149,23 +153,126 @@ class AuthController {
         session.put('owner', "");        
     }
 
-    async addProduct ({request,response }) {
-        const {productname , priceday , deposit , color , size , quantity , description} = request.body;
-        console.log(request.body)
-        await Database.collection('product_list').insert({ name:productname, price_p_day:priceday ,deposit:deposit,type:[color , size , quantity , description]});
+    async addProduct ({ request, view, session }) {
+        const state = await this.verifyLogin(session);
+        
+        if (!state) {
+            return response.send("session failed");
+        }
 
-        // return response.redirect("/test")
-    }
-    addp ({view}) {
-        return view.render("/test")
+        const { productname, description, category, thumbnail } = request.body;
+
+        const fetchedData = await Database.collection('product_list').where({ name: productname, owner: tokens.owner }).findOne();
+
+        if (fetchedData) {
+            return view.render("/add-sub-product", { name: fetchedData.name });
+        }
+
+        const categoryArray = category.split(',');
+        categoryArray.push("all");
+
+        await Database.collection('product_list').insert({ name: productname, owner: tokens.owner, description, category: categoryArray, thumbnail });
+
+        return view.render("/add-sub-product", { name: productname, state });
     }
 
-    async listProduct ({ view, response, request }) {
+    async addSubProduct ({ session, request, response, view }) {
+        const state = await this.verifyLogin(session);
+
+        if (!state) {
+            return response.send("session failed");
+        }
+
+        const { name, pricePday, deposit, color, size, quantity, submit } = request.body;
+
+        const fetchedData = await Database.collection('product_list').where({ name }).findOne();
+
+        if (fetchedData) {
+            let type = fetchedData.type;
+            if (type !== undefined && type !== null) {
+                type.push({
+                    pricePday,
+                    deposit,
+                    color,
+                    size,
+                    quantity
+                });
+            } else {
+                type = [{
+                    pricePday,
+                    deposit,
+                    color,
+                    size,
+                    quantity
+                }];
+            }
+            
+            const filteredColor = fetchedData.type? fetchedData.type.filter(prop => prop.color === color) : undefined;
+            console.log(filteredColor);
+            const filteredSize = filteredColor? filteredColor.filter(prop => prop.size === size) : undefined;
+            console.log(filteredSize);
+
+            if (filteredSize) {
+                return view.render('/add-sub-product', { name, state, msg: "product already exist." });
+            }
+
+            await Database.collection('product_list').where({ name }).update({ type });
+
+            if (submit === "1") {
+                return response.redirect('/addProduct');
+            } else if (submit === "2") {
+                return view.render('/add-sub-product', { name, state });
+            }
+        } else {
+            console.log("product not found.");
+            return view.render('/add-sub-product', { name, state, msg: "product not found." });;
+        }
+    }
+
+    async loadAddProduct ({ view, session, response }) {
+        const state = await this.verifyLogin(session);
+
+        if (!state) {
+            return response.redirect("/login-register");
+        }
+
+        return view.render("/test", { user: tokens.owner, state });
+    }
+
+    async loadListProduct ({ view, session }) {
+        const state = await this.verifyLogin(session);
+
+        const fetchedData = await Database.collection('product_list').where({}).find();
+
+        return view.render('/shop', { items: fetchedData, state });
+    }
+
+    async listProduct ({ view, request, session }) {
+        const state = await this.verifyLogin(session);
+
         const { category } = request.body;
 
-        const fetchedData = await Database.collection('product_list').where({ category }).findMany();
+        const filter = new RegExp(category);
 
-        return view.render('/shop', { fetchedData });
+        const categoryfilter = category? filter : /all/;
+        
+        const fetchedData = await Database.collection('product_list').where({ 'category': categoryfilter }).find();
+        console.log(fetchedData);
+
+        return view.render('/shop', { items: fetchedData, state });
+    }
+
+    async getCart ({ session, response, view }) {
+        const state = await this.verifyLogin(session);
+
+        if (!state)
+        {
+            return response.redirect("/");   
+        }
+
+        const fetchedData = await Database.collection("user_profile").where({ username: tokens.owner }).findOne();
+
+        return view.render("/cart", { fetchedData: fetchedData.cart, state });
     }
 
     async genToken (session) {
@@ -177,15 +284,17 @@ class AuthController {
             token: await argon2.hash(hash)
         });
 
-        const test = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
+        // const test = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
 
         if (result) {
             tokens.token = hash;
             session.put('token', hash);
             session.put('owner', tokens.owner);
         }
-        console.log("Token: " + tokens.token, test);
+        // console.log("Token: " + tokens.token, test);
     }
+
+    // For debugging purpose.
     async verifyToken ({ response, session }) {
         if (tokens.token !== session.get('token')) {
             tokens.token = session.get('token');
@@ -212,6 +321,38 @@ class AuthController {
         }
 
         return response.send(result);
+    }
+
+    async verifyLogin (session) {
+        if (tokens.token !== session.get('token')) {
+            tokens.token = session.get('token');
+        }
+        if (tokens.owner !== session.get('owner')) {
+            tokens.owner = session.get('owner');
+        }
+
+        const hash = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
+
+        if (hash === null) {
+            tokens.token = "";
+            tokens.owner = "";
+            session.put('token', "");
+            session.put('owner', "");
+            return false;
+        }
+
+        const result = await argon2.verify(hash.token? hash.token : "null", tokens.token);
+
+        if (result) {
+            await this.genToken(session);
+        } else {
+            tokens.token = "";
+            tokens.owner = "";
+            session.put('token', "");
+            session.put('owner', "");
+        }
+
+        return result;
     }
 }
 
