@@ -59,6 +59,9 @@ db.createCollection("product_list", {
         },
         thumbnail: {
           bsonType: "string"
+        },
+        review: {
+          bsonType: "array"
         }
       }
     }
