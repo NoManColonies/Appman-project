@@ -40,7 +40,7 @@ db.createCollection("product_list", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["name", "owner"],
+      required: ["name", "owner", "category"],
       properties: {
         name: {
           bsonType: "string"
