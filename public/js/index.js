@@ -1,18 +1,33 @@
 "use strict";
-// console.log(FB)
+class RunOnStartUp {
+    constructor() {
+        this.addNewTask = (task) => {
+            this.tasks.push(task);
+        };
+        this.run = () => {
+            console.log("running startup tasks.");
+            this.tasks.forEach(task => {
+                task();
+            });
+        };
+        this.tasks = [];
+    }
+}
+const onStartUp = new RunOnStartUp();
 window.onload = async () => {
     const validationResult = await fetch("/api/", { method: "POST" });
     const login = await validationResult.json();
-    console.log(login)
-    if(login) {
-        document.querySelector("#logout").classList.toggle("none")
+    console.log("Is logged in: " + login);
+    const logoutBtn = document.querySelector("#logout");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", Logout);
     }
-    document.querySelector("#logout").addEventListener("click",Logout)
     onStartUp.run();
-    async function Logout () {
-        await fetch("/api/logout",{method:"post"})
-        window.location.href = "/"
+    async function Logout() {
+        await fetch("/api/logout", { method: "post" });
+        window.location.href = "/";
     }
+    ;
 };
 function checkLoginState() {
     FB.getLoginStatus(async function (response) {
@@ -48,18 +63,3 @@ async function statusChangeCallback(response) {
     console.log("logged in. Successfully registered user.");
     window.location.href = "/login-register";
 }
-class RunOnStartUp {
-    constructor() {
-        this.addNewTask = (task) => {
-            this.tasks.push(task);
-        };
-        this.run = () => {
-            console.log("running startup tasks.");
-            this.tasks.forEach(task => {
-                task();
-            });
-        };
-        this.tasks = [];
-    }
-}
-const onStartUp = new RunOnStartUp();
