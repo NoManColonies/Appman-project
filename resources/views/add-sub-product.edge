@@ -1,0 +1,43 @@
+@layout('mainlayout');
+
+@section('css')
+{{ style("css/test") }}
+@endsection
+
+@section('content')
+<div class="test">
+    <div class="form">
+        @if(msg)
+        <div class="alert">
+            {{ msg }}
+        </div>
+        @endif
+        <form action="{{ route("/addSubProduct") }}" method="POST">
+            {{ csrfField() }}
+            <input type="hidden" name="name" value="{{ name }}">
+            <div class="label">
+                <label for="pricePday">Price/day</label>
+                <input type="number" name="pricePday" id="pricePday">
+            </div>
+            <div class="label">
+                <label for="deposit">Deposit</label>
+                <input type="number" name="deposit" id="deposit">
+            </div>
+            <div class="label">
+                <label for="color">Color</label>
+                <input type="text" name="color" id="color">
+            </div>
+            <div class="label">
+                <label for="size">Size</label>
+                <input type="text" name="size" id="size">
+            </div>
+            <div class="label">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" id="Quantity">
+            </div>
+            <button type="submit" name="submit" value="2">Add more</button>
+            <button type="submit" name="submit" value="1">Submit</button>
+        </form>
+    </div>
+</div>
+@endsection
