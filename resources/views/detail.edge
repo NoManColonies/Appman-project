@@ -131,7 +131,8 @@
                     </div>
                     <div class="review-box-alldetail">
                         <div class="review-box-name">Chubby</div>
-                        <div class="review-box-ratestar">                    <span class="fa fa-star checked"></span>
+                        <div class="review-box-ratestar">                    
+                            <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -146,15 +147,22 @@
                 </div>
             </div>
             <div class="add-new-review">
-                <div class="add-new-ratestar-box">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
+                <div class="add-new-review-box">
+                    <p> RATING</p>
+                    <div class="add-new-ratestar-box">
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                    </div>
+                    <p>REVIEW</p>
+                    <input type="text" name="review" id="review">
+                    <form action="" method="post">
+                        <input type="hidden" id="ratestarvalue" name="ratestarvalue">
+                        <button type="button">+ ADD NEW REVIEW</button>
+                    </form>
                 </div>
-                <input type="text" name="ratestar">
-                <button type="button">+ ADD NEW REVIEW</button>
             </div>
         </div>
     </div>
