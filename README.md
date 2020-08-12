@@ -29,11 +29,11 @@ Run the following command to run startup migrations.
 ```js
 adonis migration:run
 ```
-#### Mongodb schema
+### Mongodb schema
 
 Run the following command to create collections.
 
-product collection.
+#### product collection.
 
 ```js
 db.createCollection("product_list", {
@@ -56,7 +56,7 @@ db.createCollection("product_list", {
   }
 })
 ```
-user collection.
+#### user collection.
 
 ```js
 db.createCollection("user_profile", {
