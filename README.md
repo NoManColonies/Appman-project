@@ -53,6 +53,9 @@ db.createCollection("product_list", {
         },
         category: {
           bsonType: "string"
+        },
+        description: {
+          bsontype: "string"
         }
       }
     }
