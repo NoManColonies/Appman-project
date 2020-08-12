@@ -97,6 +97,9 @@ db.createCollection("user_profile", {
         },
         user_info: {
           bsonType: "object"
+        },
+        transaction: {
+          bsonType: "array"
         }
       }
     }
