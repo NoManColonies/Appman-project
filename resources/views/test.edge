@@ -5,38 +5,26 @@
 @section('content')
 <div class="test">
     <div class="form">
-        <form action="{{ route("/wow") }}" method="POST">
+        <form action="{{ route("/addProduct") }}" method="POST">
             {{ csrfField() }}
             <div class="label">
-                <label for="Product-name">Produtc's name</label>
-                <input type="text" name="productname" id="Product-name">
+                <label for="product-name">Product's name</label>
+                <input type="text" name="productname" id="product-name">
             </div>
             <div class="label">
-                <label for="price-day">Price/day</label>
-                <input type="number" name="priceday" id="price-day">
-            </div>
-            <div class="label">
-                <label for="Deposit">Deposit</label>
-                <input type="number" name="deposit" id="Deposit">
-            </div>
-            <div class="label">
-                <label for="color">color</label>
-                <input type="text" name="color" id="Color">
-            </div>
-            <div class="label">
-                <label for="size">Size</label>
-                <input type="text" name="size" id="Size">
-            </div>
-            <div class="label">
-                <label for="quantity">Quantity</label>
-                <input type="number" name="quantity" id="Quantity">
-            </div>
-            <div class="label">
-                <label for="description">description</label>
+                <label for="description">Description</label>
                 <input type="text" name="description" id="description">
             </div>
-            <button type="submit" value="submit">ไป!!!</button>
-    </form>
+            <div class="label">
+                <label for="category">Categories</label>
+                <input type="text" name="category" id="category" placeholder="Comma is required for multiple tags.">
+            </div>
+            <div class="label">
+                <label for="thumbnail">Thumbnail</label>
+                <input type="text" name="thumbnail" id="thumbnail" placeholder="thumbnail image path.">
+            </div>
+            <button type="submit" value="submit">Next</button>
+        </form>
     </div>
 </div>
 @endsection
