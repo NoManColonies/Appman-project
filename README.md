@@ -100,4 +100,31 @@ db.createCollection("user_profile", {
   }
 })
 ```
+### Insert predefined collection
 
+```js
+db.product_list.insertMany([
+  {
+    name: "Pikachu miki",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product1.jpg",
+    type: [
+    {
+      pricePday: "199",
+      deposit: "199",
+      color: "pink",
+      size: "38",
+      quantity: "3"
+    },
+    {
+      pricePday: "199",
+      deposit: "199",
+      color: "pink",
+      size: "38",
+      quantity: "3"
+    }]
+  },
+])
+```
