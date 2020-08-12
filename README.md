@@ -21,11 +21,75 @@ adonis new yardstick
 
 or manually clone the repo and then run `npm install`.
 
+### Mongodb schema
 
-### Migrations
+Run the following command to create collections.
 
-Run the following command to run startup migrations.
+#### product collection.
 
 ```js
-adonis migration:run
+db.createCollection("product_list", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "owner", "category", "thumbnail"],
+      properties: {
+        name: {
+          bsonType: "string"
+        },
+        owner: {
+          bsonType: "string"
+        },
+        type: {
+          bsonType: "array"
+        },
+        category: {
+          bsonType: "array"
+        },
+        description: {
+          bsonType: "string"
+        },
+        thumbnail: {
+          bsonType: "string"
+        }
+      }
+    }
+  }
+})
 ```
+#### user collection.
+
+```js
+db.createCollection("user_profile", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["username", "email", "password"],
+      properties: {
+        username: {
+          bsonType: "string"
+        },
+        email: {
+          bsonType: "string"
+        },
+        password: {
+          bsonType: "string"
+        },
+        product: {
+         bsonType: "array"
+        },
+        cart: {
+          bsonType: "array"
+        },
+        token: {
+          bsonType: "string"
+        },
+        user_info: {
+          bsonType: "object"
+        }
+      }
+    }
+  }
+})
+```
+

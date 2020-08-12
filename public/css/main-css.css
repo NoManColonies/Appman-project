@@ -85,3 +85,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
+.none {
+    display: none;
+}

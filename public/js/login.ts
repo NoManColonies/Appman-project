@@ -1,23 +1,10 @@
-document.querySelector('#login-username')!.addEventListener('input', () => {
-    const target = document.querySelector('#label__username')!;
-    if (document.querySelector('#login-username')!.value === "") {
-        target.classList.remove('label__focus');
-    } else {
-        target.classList.add('label__focus');
-    }
-})
-document.querySelector('#login-password')!.addEventListener('input', () => {
-    const target = document.querySelector('#label__password')!;
-    if (document.querySelector('#login-password')!.value === "") {
-        target.classList.remove('label__focus');
-    } else {
-        target.classList.add('label__focus');
-    }
-})
-
 onStartUp.addNewTask(() => {
     document.querySelector('#login-username')!.value = "";
     document.querySelector('#login-password')!.value = "";
+    document.querySelector('#register-username')!.value = "";
+    document.querySelector('#register-password')!.value = "";
+    document.querySelector('#register-email')!.value = "";
+    document.querySelector('#register-confirm-password')!.value = "";
     const loginTab = document.querySelector('#login_tab')!;
     const registerTab = document.querySelector('#register_tab')!;
     const loginForm = document.querySelector('#login_form')!;
@@ -40,4 +27,24 @@ onStartUp.addNewTask(() => {
 
     loginTab.addEventListener('click', onClick);
     registerTab.addEventListener('click', onClick);
+
+    const addTextLiftEffect = (type: String, target: String) => {
+        document.querySelector('#' + type + '-' + target)!.addEventListener('input', onInput);
+        document.querySelector('#' + type + '-' + target)!.addEventListener('focus', onInput);
+        function onInput () {
+            const element = document.querySelector('#label-' + type + '-' + target)!;
+            if (document.querySelector('#' + type + '-' + target)!.value === "") {
+                element.classList.remove('label__focus');
+            } else {
+                element.classList.add('label__focus');
+            }
+        }
+    }
+
+    addTextLiftEffect('login', 'username');
+    addTextLiftEffect('login', 'password');
+    addTextLiftEffect('register', 'username');
+    addTextLiftEffect('register', 'email');
+    addTextLiftEffect('register', 'password');
+    addTextLiftEffect('register', 'confirm-password');
 });
