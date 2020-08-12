@@ -55,7 +55,7 @@ db.createCollection("product_list", {
           bsonType: "string"
         },
         description: {
-          bsontype: "string"
+          bsonType: "string"
         }
       }
     }
