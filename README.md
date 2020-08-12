@@ -52,7 +52,7 @@ db.createCollection("product_list", {
           bsonType: "array"
         },
         category: {
-          bsonType: "string"
+          bsonType: "array"
         },
         description: {
           bsonType: "string"
