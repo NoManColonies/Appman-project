@@ -7,3 +7,17 @@
 .label {
     margin: 20px;
 }
+
+.none
+{
+    display: none;
+}
+
+.alert
+{
+    border-radius: 20px;
+    background-color: #C70039;
+    padding: 20px 100px;
+    color: white;
+    font-weight: bold;
+}

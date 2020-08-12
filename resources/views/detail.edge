@@ -43,7 +43,7 @@
                         <option value="s">s</option>
                         <option value="ss">ss</option>
                     </select>
-                    <input type="number" value="1">
+                    <input type="number" value="1" min="1" max="{{}}">
                 </div>
             </div>
             <div class="add-buy-button">
@@ -92,26 +92,8 @@
                     </div>
                     <div class="review-box-alldetail">
                         <div class="review-box-name">Chubby</div>
-                        <div class="review-box-ratestar">                    <span class="fa fa-star checked"></span>
+                        <div class="review-box-ratestar">
                             <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="review-box-comment">
-                            Contrary to popular belief, Lorem Ipsum is not simply random text.
-                            It has roots in a piece of classical Latin literature from 45 BC,
-                            making it over 2000 years old.
-                        </div>
-                    </div>
-                </div>
-                <div class="review-box">
-                    <div class="review-box-profilepic">
-                        <img src="images/profilepic.jpg" alt="">
-                    </div>
-                    <div class="review-box-alldetail">
-                        <div class="review-box-name">Chubby</div>
-                        <div class="review-box-ratestar">                    <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -131,6 +113,26 @@
                     <div class="review-box-alldetail">
                         <div class="review-box-name">Chubby</div>
                         <div class="review-box-ratestar">                    <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="review-box-comment">
+                            Contrary to popular belief, Lorem Ipsum is not simply random text.
+                            It has roots in a piece of classical Latin literature from 45 BC,
+                            making it over 2000 years old.
+                        </div>
+                    </div>
+                </div>
+                <div class="review-box">
+                    <div class="review-box-profilepic">
+                        <img src="images/profilepic.jpg" alt="">
+                    </div>
+                    <div class="review-box-alldetail">
+                        <div class="review-box-name">Chubby</div>
+                        <div class="review-box-ratestar">                    
+                            <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -145,7 +147,22 @@
                 </div>
             </div>
             <div class="add-new-review">
-                <button type="button">+ ADD NEW REVIEW</button>
+                <div class="add-new-review-box">
+                    <p> RATING</p>
+                    <div class="add-new-ratestar-box">
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                        <span class="fa checked fa-star unchecked"></span>
+                    </div>
+                    <p>REVIEW</p>
+                    <input type="text" name="review" id="review">
+                    <form action="" method="post">
+                        <input type="hidden" id="ratestarvalue" name="ratestarvalue">
+                        <button type="button">+ ADD NEW REVIEW</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -155,4 +172,7 @@
         Copyright © 2007-2009 POPRENT.
     </div>
 </footer>
+{{--  <script src="js/detail.js"></script>  --}}
+{{script("js/detail")}}
+
 @endsection
