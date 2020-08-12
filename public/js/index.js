@@ -2,8 +2,17 @@
 // console.log(FB)
 window.onload = async () => {
     const validationResult = await fetch("/api/", { method: "POST" });
-    console.log(await validationResult.json());
+    const login = await validationResult.json();
+    console.log(login)
+    if(login) {
+        document.querySelector("#logout").classList.toggle("none")
+    }
+    document.querySelector("#logout").addEventListener("click",Logout)
     onStartUp.run();
+    async function Logout () {
+        await fetch("/api/logout",{method:"post"})
+        window.location.href = "/"
+    }
 };
 function checkLoginState() {
     FB.getLoginStatus(async function (response) {
