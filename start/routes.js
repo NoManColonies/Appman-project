@@ -43,3 +43,5 @@ Route.on('/products').render('products');
 Route.on('/update-stock').render('update-stock');
 Route.on('/cart').render('cart');
 Route.on('/cart-checkout').render('cart-checkout');
+Route.on('/purchase').render('purchase');
+
