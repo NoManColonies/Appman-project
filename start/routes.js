@@ -43,3 +43,4 @@ Route.post("/api/checkout", "AuthController.processOrder");
 
 Route.on('/products').render('products');
 Route.on('/update-stock').render('update-stock');
+Route.on('/cart').render('cart');
