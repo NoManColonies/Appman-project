@@ -1,10 +1,8 @@
 "use strict";
+const stars = document.querySelector(".add-new-ratestar-box")!.children;
+const ratingValue = document.querySelector("#ratestarvalue")!;
+let index: number;
 
-const { remove } = require("@adonisjs/framework/src/Route/Store");
-
-const stars = document.querySelector(".add-new-ratestar-box").children;
-const ratingValue = document.querySelector("#ratestarvalue");
-let index;
 for (let i = 0; i < stars.length; i++) {
     stars[i].addEventListener("mouseover", function () {
         for (let j = 0; j < stars.length; j++) {
@@ -15,11 +13,11 @@ for (let i = 0; i < stars.length; i++) {
             stars[j].classList.remove("unchecked");
             stars[j].classList.add("checked");
         }
-    });
+    })
     stars[i].addEventListener("click", function () {
         ratingValue.value = i + 1;
         index = i + 1;
-    });
+    })
     stars[i].addEventListener("mouseout", function () {
         for (let j = 0; j < stars.length; j++) {
             stars[j].classList.remove("checked");
@@ -31,7 +29,3 @@ for (let i = 0; i < stars.length; i++) {
         }
     })
 }
-    const flippage = document.querySelector(".descrip-review-box");
-    flippage.addEventListener("click",function(){
-        console.log("hey")
-    })

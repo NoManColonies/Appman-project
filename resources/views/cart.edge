@@ -32,54 +32,27 @@
                 </div>
             </div>
         </div>
-        <div class="cart-product-box">
+        @each(item in cart)
+        <form class="cart-product-box" action="/delete" method="get">
+            {{ csrfField() }}
             <div class="bar-product">
-            <img src="images/product9.jpg" alt="">
-            <div class="product-name">
-                <p style="font-weight: bold;">WOODDY MEMES</p>
-                <p style="margin:0;">Color : pink</p>
-                <p style="margin:0;">Size : 32</p>
+                <img src="images/product9.jpg" alt="">
+                <div class="product-name">
+                    <p style="font-weight: bold;">{{ item.name }}</p>
+                    <p style="margin:0;">Color : {{ item.color }}</p>
+                    <p style="margin:0;">Size : {{ item.size }}</p>
+                </div>
+                <p>x{{ item.quantity }}</p>
+                <p>3</p>
+                <p>฿{{ item.price }}</p>
+                <p>฿{{ item.deposit }}</p>
+                <p>฿{{ item.price * 3 * item.quantity }}</p>
+                <div class="delete-button">
+                    <button type="submit" name="name" value={{ item.name }}>delete</button>
+                </div>
             </div>
-            <p>x2</p>
-            <p>3</p>
-            <p>฿999.99</p>
-            <p>฿9999.99</p>
-            <p>฿15,999.93</p>
-            <div class="delete-button"><button>delete</button></div>
-            </div>
-        </div>
-        <div class="cart-product-box">
-            <div class="bar-product">
-            <img src="images/product9.jpg" alt="">
-            <div class="product-name">
-                <p style="font-weight: bold;">WOODDY MEMES</p>
-                <p style="margin:0;">Color : pink</p>
-                <p style="margin:0;">Size : 32</p>
-            </div>
-            <p>x2</p>
-            <p>3</p>
-            <p>฿999.99</p>
-            <p>฿9999.99</p>
-            <p>฿15,999.93</p>
-            <div class="delete-button"><button>delete</button></div>
-            </div>
-        </div>
-        <div class="cart-product-box">
-            <div class="bar-product">
-            <img src="images/product9.jpg" alt="">
-            <div class="product-name">
-                <p style="font-weight: bold;">WOODDY MEMES</p>
-                <p style="margin:0;">Color : pink</p>
-                <p style="margin:0;">Size : 32</p>
-            </div>
-            <p>x2</p>
-            <p>3</p>
-            <p>฿999.99</p>
-            <p>฿9999.99</p>
-            <p>฿15,999.93</p>
-            <div class="delete-button"><button>delete</button></div>
-            </div>
-        </div>
+        </form>
+        @endeach
     </div>
 </div>
 <footer>
