@@ -191,26 +191,24 @@ class AuthController {
             let type = fetchedData.type;
             if (type !== undefined && type !== null) {
                 type.push({
-                    pricePday,
-                    deposit,
+                    pricePday: parseInt(pricePday),
+                    deposite: parseInt(deposit),
                     color,
                     size,
-                    quantity
+                    quantity: parseInt(quantity)
                 });
             } else {
                 type = [{
-                    pricePday,
-                    deposit,
+                    pricePday: parseInt(pricePday),
+                    deposit: parseInt(deposit),
                     color,
                     size,
-                    quantity
+                    quantity: parseInt(quantity)
                 }];
             }
             
             const filteredColor = fetchedData.type? fetchedData.type.filter(prop => prop.color === color) : undefined;
-            console.log(filteredColor);
             const filteredSize = filteredColor? filteredColor.filter(prop => prop.size === size) : undefined;
-            console.log(filteredSize);
 
             if (filteredSize) {
                 return view.render('/add-sub-product', { name, state, msg: "product already exist." });
@@ -262,17 +260,139 @@ class AuthController {
         return view.render('/shop', { items: fetchedData, state });
     }
 
-    async getCart ({ session, response, view }) {
+    async loadProductDetail ({ view, session, request, response }) {
+        const state = await this.verifyLogin(session);
+
+        const { name } = request.get();
+        
+        const filter = new RegExp(name);
+
+        const fetchedData = await Database.collection('product_list').where({ 'name': filter }).findOne();
+
+        if (!fetchedData) {
+            return response.send("product does not exist.");
+        }
+
+        return view.render('/detail', { product: fetchedData, state });
+    }
+
+    async getCart ({ session, view, response }) {
         const state = await this.verifyLogin(session);
 
         if (!state)
         {
-            return response.redirect("/");   
+            return response.redirect("/login-register");   
         }
 
         const fetchedData = await Database.collection("user_profile").where({ username: tokens.owner }).findOne();
 
         return view.render("/cart", { fetchedData: fetchedData.cart, state });
+    }
+
+    async checkout ({ view, session, response, request }) {
+        const state = await this.verifyLogin(session);
+
+        if (!state) {
+            return response.redirect("/login-register");
+        }
+
+        const { name, color, size, quantity, process } = request.get();
+
+        const fetchedData = await Database.collection('product_list').where({ name: new RegExp(name) }).findOne();
+
+        if (!fetchedData) {
+            return response.send("error: product does not exist.");
+        }
+
+        if (process == 2) {
+            await Database.collection('user_profile').where({ username: tokens.owner }).update({
+                cart: [{
+                    name, color, size, quantity: parseInt(quantity), process, price: parseInt(fetchedData.type[0].pricePday)
+                }]
+            });
+    
+            return view.render("/checkout", { state, name, color, size, quantity, process, product: fetchedData, price: fetchedData.type[0].pricePday });
+        } else if (process == 1) {
+            const user = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
+
+            if (user) {
+                let cart = user.cart;
+
+                if (cart !== undefined || cart !== null) {
+                    cart = [];
+                }
+
+                cart.push({
+                    name, color, size, quantity: parseInt(quantity), price: fetchedData.type[0].pricePday
+                });
+
+                await Database.collection('user_profile').where({ username: tokens.owner }).update({
+                    cart
+                });
+
+                return;
+            }
+            
+            return response.redirect("/shop");
+        }
+
+        return response.send("error: process not match.");
+    }
+
+    async processOrder ({ session, response }) {
+        const state = await this.verifyLogin(session);
+
+        if (!state) {
+            return response.redirect("/login-register");
+        }
+
+        const fetchedData = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
+
+        const { name, color, size, price, quantity } = fetchedData.cart[0];
+
+        let transaction = fetchedData.transaction;
+
+        console.log(fetchedData.cart);
+        
+        if (transaction === undefined || transaction === null) {
+            transaction = [{
+                name,
+                color,
+                size,
+                price,
+                quantity,
+                total: quantity + price
+            }];
+        } else {
+            transaction.push({
+                name,
+                color,
+                size,
+                price,
+                quantity,
+                total: quantity + price
+            });
+        }
+
+
+        await Database.collection('user_profile').where({ username: tokens.owner }).update({
+            transaction,
+            cart: []
+        });
+
+        const productData = await Database.collection('product_list').where({ name: new RegExp(name) }).findOne();
+
+        productData.type.forEach((element, index, elements) => {
+            if (element.color === color && element.size === size) {
+                elements[index].quantity -= quantity;
+            }
+        });
+
+        await Database.collection('product_list').where({ name }).update({
+            type: productData.type
+        });
+
+        return response.send("0");
     }
 
     async genToken (session) {
