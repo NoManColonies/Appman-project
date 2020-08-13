@@ -75,7 +75,7 @@ class AuthController {
     async registerUser({ request, response }){
         const { name, username, email, password } = request.body;
 
-        if (request.body === undefined || request.body === null) {
+        if (!request.body) {
             return response.redirect("/login-register");
         }
 
@@ -169,6 +169,20 @@ class AuthController {
         categoryArray.push("all");
 
         await Database.collection('product_list').insert({ name: productname, owner: tokens.owner, description, category: categoryArray, thumbnail });
+
+        const user = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
+
+        let product = user.product;
+
+        if (!product) {
+            product = [];
+        }
+
+        product.push(productname);
+
+        await Database.collection('user_profile').where({ username: tokens.owner }).update({
+            product
+        });
 
         return view.render("/add-sub-product", { name: productname, state });
     }
@@ -365,7 +379,7 @@ class AuthController {
             if (user) {
                 let cart = user.cart;
 
-                if (cart === undefined || cart === null) {
+                if (!cart) {
                     cart = [];
                 }
 
