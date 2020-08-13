@@ -398,8 +398,6 @@ class AuthController {
         const { name, color, size, price, quantity } = fetchedData.cart[0];
 
         let transaction = fetchedData.transaction;
-
-        console.log(fetchedData.cart);
         
         if (transaction === undefined || transaction === null) {
             transaction = [{
@@ -451,14 +449,11 @@ class AuthController {
             token: await argon2.hash(hash)
         });
 
-        // const test = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
-
         if (result) {
             tokens.token = hash;
             session.put('token', hash);
             session.put('owner', tokens.owner);
         }
-        // console.log("Token: " + tokens.token, test);
     }
 
     // For debugging purpose.
