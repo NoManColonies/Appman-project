@@ -1,0 +1,81 @@
+.bar-topic button {
+    border: none;
+    background-color: #FDDFA3;
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+    width: 100px;
+    height: 40px;
+    font-weight: 600;
+    margin: 20px 0px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+}
+.cart-page {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10vh;
+}
+.bar-topic-box {
+    display: flex;
+    justify-content: center;
+}
+.bar-product img {
+    width: 60%;
+    margin: auto;
+}
+.bar-topic {
+    margin-top: 20vh;
+    display: grid;
+    grid-template-columns: 20% 30% 10% 10% 10% 10% 10% ;
+    width: 100%;
+}
+.bar-product {
+    display: grid;
+    grid-template-columns: 20% 30% 10% 10% 10% 10% 10%;
+    width: 100%;
+    color: #5F5F5F;
+}
+.bar-product-cart {
+    display: grid;
+    grid-template-columns: 30% 30% 10% 10% 10% 10%;
+    width: 100%;
+}
+.delete-button button {
+    width: fit-content;
+    height: fit-content;
+    padding:5px 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.total-price-box {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 7vh;
+    border-top:1px solid rgb(194, 194, 194);
+}
+.total-price-text p , button {
+    width: fit-content;
+
+}
+.total-price-box p {
+    color: #7c1515;
+    font-size: x-large;
+    font-weight: bold;
+}
+.total-price-box button {
+    border: #FDDFA3 solid 5px;
+    background-color:white;
+    color: #FDDFA3;
+    border-radius: 20px;
+    font-size: 13px;
+    width: 100px;
+    height: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+}
