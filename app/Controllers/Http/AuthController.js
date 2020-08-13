@@ -54,7 +54,6 @@ class AuthController {
 
     async register({ request, response }) {
         const { name, email, username, password } = request.body;
-        console.log(request.body);
 
         if (request.body === undefined || request.body === null) {
             return response.redirect("/login-register");
@@ -64,7 +63,7 @@ class AuthController {
 
         if (result !== null) {
             console.log("not ok");
-            return response.route("/login-register", { ok: false});
+            return response.route("/login-register", { ok: false });
         }
         console.log("ok")
         // await Database.from("users").insert({email,password});
@@ -74,7 +73,6 @@ class AuthController {
     }
 
     async registerUser({ request, response }){
-        console.log(request);
         const { name, username, email, password } = request.body;
 
         if (request.body === undefined || request.body === null) {
@@ -90,7 +88,6 @@ class AuthController {
         const { username } = request.body;
 
         const result = await Database.collection('user_profile').find({ username: username });
-        console.log(result);
 
         const regex = new RegExp('@facebook.com');
 
@@ -368,7 +365,7 @@ class AuthController {
             if (user) {
                 let cart = user.cart;
 
-                if (cart !== undefined || cart !== null) {
+                if (cart === undefined || cart === null) {
                     cart = [];
                 }
 
@@ -401,8 +398,6 @@ class AuthController {
         const { name, color, size, price, quantity } = fetchedData.cart[0];
 
         let transaction = fetchedData.transaction;
-
-        console.log(fetchedData.cart);
         
         if (transaction === undefined || transaction === null) {
             transaction = [{
@@ -454,14 +449,11 @@ class AuthController {
             token: await argon2.hash(hash)
         });
 
-        // const test = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
-
         if (result) {
             tokens.token = hash;
             session.put('token', hash);
             session.put('owner', tokens.owner);
         }
-        // console.log("Token: " + tokens.token, test);
     }
 
     // For debugging purpose.
