@@ -276,6 +276,30 @@ class AuthController {
         return view.render('/detail', { product: fetchedData, state });
     }
 
+    async loadProducts ({ session, view, response }) {
+        const state = await this.verifyLogin(session);
+
+        if (!state) {
+            return response.redirect("/login-register");
+        }
+
+        const fetchedData = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
+
+        if (fetchedData.product) {
+            const products = [];
+            const data = await Database.collection('product_list').where({}).find();
+
+            fetchedData.product.forEach(element => {
+                const filtered = data.filter(prop => prop === element.name);
+                products.push(filtered);
+            });
+
+            return view.render("/products", { products });
+        }
+
+        return response.redirect("/login-register");        
+    }
+
     async getCart ({ session, view, response }) {
         const state = await this.verifyLogin(session);
 
@@ -286,7 +310,33 @@ class AuthController {
 
         const fetchedData = await Database.collection("user_profile").where({ username: tokens.owner }).findOne();
 
-        return view.render("/cart", { fetchedData: fetchedData.cart, state });
+        return view.render("/cart", { cart: fetchedData.cart, state });
+    }
+
+    async deleteFromCart ({ session, request, response }) {
+        const state = await this.verifyLogin(session);
+
+        if (!state) {
+            return response.redirect("/login-register");
+        }
+
+        const { name } = request.get();
+
+        const fetchedData = await Database.collection('user_profile').where({ username: tokens.owner }).findOne();
+
+        if (fetchedData) {
+            const cart = fetchedData.cart.filter(prop => prop.name !== name);
+
+            console.log(cart, name);
+
+            await Database.collection('user_profile').where({ username: tokens.owner }).update({
+                cart
+            });
+
+            return response.redirect("/cart");
+        }
+
+        return response.send("error: user not found.");
     }
 
     async checkout ({ view, session, response, request }) {
@@ -323,7 +373,7 @@ class AuthController {
                 }
 
                 cart.push({
-                    name, color, size, quantity: parseInt(quantity), price: fetchedData.type[0].pricePday
+                    name, color, size, quantity: parseInt(quantity), price: fetchedData.type[0].pricePday, path: fetchedData.thumbnail, deposit: fetchedData.type[0].deposit
                 });
 
                 await Database.collection('user_profile').where({ username: tokens.owner }).update({

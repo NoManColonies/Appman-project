@@ -26,6 +26,8 @@ Route.get('/cart', "AuthController.getCart");
 Route.get('/addProduct', "AuthController.loadAddProduct");
 Route.get('/detail', "AuthController.loadProductDetail");
 Route.get('/checkout', "AuthController.checkout");
+Route.get('/delete', "AuthController.deleteFromCart");
+Route.get('/products', "AuthController.loadProducts");
 Route.post('/login-register',"AuthController.register");
 Route.post("/login","AuthController.loginUser");
 Route.post("/shop", "AuthController.listProduct");
@@ -41,6 +43,4 @@ Route.post("/api/logout", "AuthController.logoutUser");
 Route.post("/api/logologout", "AuthController.verifyLogin");
 Route.post("/api/checkout", "AuthController.processOrder");
 
-Route.on('/products').render('products');
 Route.on('/update-stock').render('update-stock');
-Route.on('/cart').render('cart');
