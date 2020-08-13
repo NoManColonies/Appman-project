@@ -101,8 +101,8 @@
     cursor: pointer;
 }
 .expand-pic {
-    width: 350px;
-    height: 350px;
+    width: 350px !important;
+    height: auto;
     margin-left: 20px;
     background-color: red;
 }
