@@ -33,7 +33,7 @@
         <div class="all-card">
             @each(item in items)
                 <div class="card">
-                    <a href="detail">
+                    <a href={{ "/detail?name=" + item.name }}>
                         <img src={{ assetsUrl("images/" + item.thumbnail ) }} alt={{ item.name }}>
                         <div class="inside">
                             <p style="color:#767676;font-weight:bold;">{{ item.name }}</p>

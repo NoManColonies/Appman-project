@@ -20,15 +20,15 @@
               <img src="images/gallery3.jpg" onclick="myFunction(this);">
             </div>
         </div>
-        <div class="expand-pic">
-
-        </div>
+        <img src={{ assetsUrl("images/" + product.thumbnail) }} alt={{ product.name }} class="expand-pic">
     </div>
     <div class="product-detail">
-        <div class="option">
-            <div class="main-option" style="font-size:40px;font-weight:bold;">WOODDY MEMES</div>
-            <div class="main-option" style="letter-spacing:2px;font-size: 25px;font-weight:200;">PRICE/DAY 999.00 THB</div>
+        <form class="option" action={{ route("/checkout") }} action="get">
+            {{ csrfField() }}
+            <div class="main-option" style="font-size:40px;font-weight:bold;">{{ product.name }}</div>
+            <div class="main-option" style="letter-spacing:2px;font-size: 25px;font-weight:200;">PRICE/DAY {{ product.type[0].pricePday }}</div>
             <div class="all-sub-option">
+                <input type="hidden" name="name" value={{ product.name }}>
                 <div class="sub-option">
                     <label for="color">Size</label>
                     <label for="Size">Color</label>
@@ -36,21 +36,23 @@
                 </div>
                 <div class="sub-option">
                     <select name="color" id="color">
-                        <option value="pink">pink</option>
-                        <option value="black">black</option>
+                        @each(tag in product.type)
+                        <option value={{ tag.color }}>{{ tag.color }}</option>
+                        @endeach
                     </select>
                     <select name="size" id="size">
-                        <option value="s">s</option>
-                        <option value="ss">ss</option>
+                        @each(tag in product.type)
+                        <option value={{ tag.size }}>{{ tag.size }}</option>
+                        @endeach
                     </select>
-                    <input type="number" value="1" min="1" max="{{}}">
+                    <input type="number" value="1" min="1" max={{ product.type[0].quantity }} name="quantity">
                 </div>
             </div>
             <div class="add-buy-button">
-                <button class="add" type="submit">ADD TO CART</button>
-                <button class="buy" type="submit">BUY NOW</button>
+                <button class="add" type="submit" value="1" name="process">ADD TO CART</button>
+                <button class="buy" type="submit" value="2" name="process">BUY NOW</button>
             </div>
-        </div>
+        </form>
     </div>
     <div class="descrip-review-box">
         <div class="descrip-review-box-maintext">
@@ -172,7 +174,5 @@
         Copyright © 2007-2009 POPRENT.
     </div>
 </footer>
-{{--  <script src="js/detail.js"></script>  --}}
 {{script("js/detail")}}
-
 @endsection

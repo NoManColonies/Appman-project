@@ -25,26 +25,26 @@
             </div>
             <div class="first-page-option">
                 <div class="first-page-picture-product">
-                    <img src="images/categories-toy.jpg" alt="">
+                    <img src={{ assetsUrl("images/" + product.thumbnail) }} alt={{ product.name }}>
                 </div>
                 <div class="first-page-detail-option">
                     <div class="product-name">
-                        <p>WOODDY MEMES</p>
+                        <p>{{ product.name }}</p>
                     </div>
                     <div class="first-page-sub-detail-option">
-                        <p>Color : Pink</p>
-                        <p>Size : ss</p>
-                        <p>Quantity : x2</p>
-                        <p>Price/day : 999.99 THB</p>
-                        <p>Deposit : 200 THB</p>
+                        <p>Color : {{ color }}</p>
+                        <p>Size : {{ size }}</p>
+                        <p>Quantity : x{{ quantity }}</p>
+                        <p>Price/day : {{ product.type[0].pricePday }} THB</p>
+                        <p>Deposit : {{ product.type[0].deposit }} THB</p>
                     </div>
                     <div class="first-page-totalprice">
-                        <p>Total Price : 2199.98 THB</p>
+                        <p>Total Price : {{ price * quantity }} THB</p>
                     </div>
                 </div>
             </div>
             <div class="next-button" type="button">
-                <button type="button">NEXT</button>
+                <button type="button" id="next1">NEXT</button>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="next-button" type="button">
-                <button type="button">NEXT</button>
+                <button type="button" id="next2">NEXT</button>
             </div>
         </div>
     </div>
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class="success-button" type="button">
-                <button type="button">CONTINUE SHOPPING</button>
+                <button type="button" id="next3">CONTINUE SHOPPING</button>
             </div>
         </div>
     </div>
@@ -144,4 +144,5 @@
         Copyright © 2007-2009 POPRENT.
     </div>
 </footer>
+{{ script("js/checkout") }}
 @endsection

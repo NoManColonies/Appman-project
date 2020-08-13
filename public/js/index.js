@@ -29,17 +29,17 @@ window.onload = async () => {
     }
     ;
 };
-function checkLoginState() {
-    FB.getLoginStatus(async function (response) {
-        statusChangeCallback(response);
-        // const { userID, accessToken } = response.authResponse;
-        // const fd = new FormData();
-        // fd.append("userID", userID);
-        // fd.append("accessToken", accessToken);
-        // // console.log(userID, accessToken);
-        // await fetch("/api/facebook", { method: "POST", body: fd});
-    });
-}
+// function checkLoginState() {
+//     FB.getLoginStatus(async function(response: Object) {
+//     statusChangeCallback(response);
+//     // const { userID, accessToken } = response.authResponse;
+//     // const fd = new FormData();
+//     // fd.append("userID", userID);
+//     // fd.append("accessToken", accessToken);
+//     // // console.log(userID, accessToken);
+//     // await fetch("/api/facebook", { method: "POST", body: fd});
+//     });
+// }
 async function statusChangeCallback(response) {
     // console.log(response)
     const { userID, accessToken } = response.authResponse;
