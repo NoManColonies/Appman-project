@@ -44,3 +44,4 @@ Route.post("/api/logologout", "AuthController.verifyLogin");
 Route.post("/api/checkout", "AuthController.processOrder");
 
 Route.on('/update-stock').render('update-stock');
+Route.on('/cart-checkout').render('cart-checkout');
