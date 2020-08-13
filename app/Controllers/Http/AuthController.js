@@ -368,7 +368,7 @@ class AuthController {
             if (user) {
                 let cart = user.cart;
 
-                if (cart !== undefined || cart !== null) {
+                if (cart === undefined || cart === null) {
                     cart = [];
                 }
 
