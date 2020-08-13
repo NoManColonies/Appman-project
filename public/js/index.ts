@@ -41,21 +41,21 @@ window.onload = async() => {
     };
 };
 
-function checkLoginState() {
-    FB.getLoginStatus(async function(response: Object) {
-    statusChangeCallback(response);
-    // const { userID, accessToken } = response.authResponse;
+// function checkLoginState() {
+//     FB.getLoginStatus(async function(response: Object) {
+//     statusChangeCallback(response);
+//     // const { userID, accessToken } = response.authResponse;
 
-    // const fd = new FormData();
+//     // const fd = new FormData();
 
-    // fd.append("userID", userID);
-    // fd.append("accessToken", accessToken);
+//     // fd.append("userID", userID);
+//     // fd.append("accessToken", accessToken);
 
-    // // console.log(userID, accessToken);
+//     // // console.log(userID, accessToken);
 
-    // await fetch("/api/facebook", { method: "POST", body: fd});
-    });
-}
+//     // await fetch("/api/facebook", { method: "POST", body: fd});
+//     });
+// }
 
 async function statusChangeCallback(response: Object){
     // console.log(response)
