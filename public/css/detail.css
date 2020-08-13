@@ -237,3 +237,9 @@
     letter-spacing: 2px;
     padding-left: 3rem;
 }
+.none {
+    display: none;
+}
+.descrip-review-text {
+    cursor: pointer;
+}

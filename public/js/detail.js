@@ -1,4 +1,7 @@
 "use strict";
+
+const { remove } = require("@adonisjs/framework/src/Route/Store");
+
 const stars = document.querySelector(".add-new-ratestar-box").children;
 const ratingValue = document.querySelector("#ratestarvalue");
 let index;
@@ -30,3 +33,7 @@ for (let i = 0; i < stars.length; i++) {
         }
     })
 }
+    const flippage = document.querySelector(".descrip-review-box");
+    flippage.addEventListener("click",function(){
+        console.log("hey")
+    })
