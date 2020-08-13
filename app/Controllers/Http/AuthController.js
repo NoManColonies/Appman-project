@@ -54,7 +54,6 @@ class AuthController {
 
     async register({ request, response }) {
         const { name, email, username, password } = request.body;
-        console.log(request.body);
 
         if (request.body === undefined || request.body === null) {
             return response.redirect("/login-register");
@@ -64,7 +63,7 @@ class AuthController {
 
         if (result !== null) {
             console.log("not ok");
-            return response.route("/login-register", { ok: false});
+            return response.route("/login-register", { ok: false });
         }
         console.log("ok")
         // await Database.from("users").insert({email,password});
@@ -74,7 +73,6 @@ class AuthController {
     }
 
     async registerUser({ request, response }){
-        console.log(request);
         const { name, username, email, password } = request.body;
 
         if (request.body === undefined || request.body === null) {
@@ -90,7 +88,6 @@ class AuthController {
         const { username } = request.body;
 
         const result = await Database.collection('user_profile').find({ username: username });
-        console.log(result);
 
         const regex = new RegExp('@facebook.com');
 
