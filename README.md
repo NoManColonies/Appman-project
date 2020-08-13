@@ -59,6 +59,9 @@ db.createCollection("product_list", {
         },
         thumbnail: {
           bsonType: "string"
+        },
+        review: {
+          bsonType: "array"
         }
       }
     }
@@ -94,10 +97,182 @@ db.createCollection("user_profile", {
         },
         user_info: {
           bsonType: "object"
+        },
+        transaction: {
+          bsonType: "array"
         }
       }
     }
   }
 })
 ```
+### Insert predefined collection
 
+```js
+db.product_list.insertMany([
+  {
+    name: "Pikachu miki",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product5.jpg",
+    type: [
+    {
+      pricePday: 199,
+      deposit: 199,
+      color: "pink",
+      size: "38",
+      quantity: 1
+    },
+    {
+      pricePday: 199,
+      deposit: 199,
+      color: "blue",
+      size: "38",
+      quantity: 2
+    }]
+  },
+  {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product7.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  },
+ {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product20.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  },
+  {
+    name: "Pikachu miki",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product8.jpg",
+    type: [
+    {
+      pricePday: 199,
+      deposit: 199,
+      color: "pink",
+      size: "38",
+      quantity: 1
+    },
+    {
+      pricePday: 199,
+      deposit: 199,
+      color: "blue",
+      size: "38",
+      quantity: 2
+    }]
+  },
+  {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product9.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  },
+ {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product10.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  },
+  {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product11.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  },
+ {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product12.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  },
+  {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product13.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  },
+ {
+    name: "Wonderchibi",
+    owner: "admin",
+    category: ["toy", "all"],
+    description: "description",
+    thumbnail: "product14.jpg",
+    type: [
+    {
+      pricePday: 255.55,
+      deposit: 300,
+      color: "red",
+      size: "24",
+      quantity: 1
+    }]
+  }
+])
+```
