@@ -118,18 +118,18 @@ db.product_list.insertMany([
     thumbnail: "product1.jpg",
     type: [
     {
-      pricePday: "199",
-      deposit: "199",
+      pricePday: 199,
+      deposit: 199,
       color: "pink",
       size: "38",
-      quantity: "1"
+      quantity: 1
     },
     {
-      pricePday: "199",
-      deposit: "199",
+      pricePday: 199,
+      deposit: 199,
       color: "blue",
       size: "38",
-      quantity: "2"
+      quantity: 2
     }]
   },
   {
@@ -140,11 +140,11 @@ db.product_list.insertMany([
     thumbnail: "product2.jpg",
     type: [
     {
-      pricePday: "255.55",
-      deposit: "300",
+      pricePday: 255.55,
+      deposit: 300,
       color: "red",
       size: "24",
-      quantity: "1"
+      quantity: 1
     }]
   }
 ])
